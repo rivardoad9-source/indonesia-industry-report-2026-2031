@@ -1,0 +1,1140 @@
+<meta charset="utf-8">
+<title>Peta Industri Indonesia 2031</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+
+<style>
+/* ============================ TOKENS ============================ */
+:root{
+  --paper:#F2F4F2;
+  --card:#FBFCFB;
+  --sunk:#E9EDEA;
+  --ink:#101C1A;
+  --ink-2:#3D4F4B;
+  --ink-3:#6B7D79;
+  --rule:#D9E0DC;
+  --rule-2:#BFCAC5;
+  --accent:#0B6F66;
+  --signal:#A96313;
+  --risk:#9E3A30;
+  --good:#3C7530;
+  --c1:#0E9488; --c2:#C2761A; --c3:#3D5FC4; --c4:#A8467E; --c5:#5F8A22;
+  --tag-bg:#E4EAE7;
+  --shadow:0 1px 2px rgba(16,28,26,.05), 0 10px 28px -16px rgba(16,28,26,.22);
+  --tip-bg:#101C1A;
+  --tip-ink:#F2F4F2;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0E1917;
+    --card:#152321;
+    --sunk:#1B2A27;
+    --ink:#E6EDEA;
+    --ink-2:#B0C0BB;
+    --ink-3:#849691;
+    --rule:#26332F;
+    --rule-2:#37473F;
+    --accent:#3FBFB0;
+    --signal:#D9973A;
+    --risk:#DE7A6B;
+    --good:#7FB863;
+    --c1:#1F9E90; --c2:#BE842E; --c3:#6D8CE0; --c4:#CC6FA6; --c5:#729C34;
+    --tag-bg:#1F2E2B;
+    --shadow:0 1px 2px rgba(0,0,0,.45), 0 12px 32px -18px rgba(0,0,0,.8);
+    --tip-bg:#E6EDEA;
+    --tip-ink:#0E1917;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0E1917;
+  --card:#152321;
+  --sunk:#1B2A27;
+  --ink:#E6EDEA;
+  --ink-2:#B0C0BB;
+  --ink-3:#849691;
+  --rule:#26332F;
+  --rule-2:#37473F;
+  --accent:#3FBFB0;
+  --signal:#D9973A;
+  --risk:#DE7A6B;
+  --good:#7FB863;
+  --c1:#1F9E90; --c2:#BE842E; --c3:#6D8CE0; --c4:#CC6FA6; --c5:#729C34;
+  --tag-bg:#1F2E2B;
+  --shadow:0 1px 2px rgba(0,0,0,.45), 0 12px 32px -18px rgba(0,0,0,.8);
+  --tip-bg:#E6EDEA;
+  --tip-ink:#0E1917;
+}
+
+/* ============================ BASE ============================ */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Source Serif 4",Georgia,"Times New Roman",serif;
+  font-size:17px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1140px;margin:0 auto;padding:0 28px 120px}
+.prose{max-width:68ch}
+h1,h2,h3,h4{font-family:"Bricolage Grotesque",'Segoe UI',system-ui,sans-serif;font-weight:700;text-wrap:balance;margin:0}
+.mono{font-family:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace}
+.num{font-variant-numeric:tabular-nums}
+a{color:var(--accent);text-underline-offset:3px;text-decoration-thickness:1px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ============================ MASTHEAD ============================ */
+.mast{border-bottom:1px solid var(--rule);padding:56px 0 40px;margin-bottom:8px}
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);
+  display:flex;flex-wrap:wrap;gap:8px 18px;margin-bottom:26px;
+}
+.eyebrow span{white-space:nowrap}
+h1{font-size:clamp(38px,7vw,72px);line-height:1.02;letter-spacing:-.028em;font-weight:800;max-width:16ch}
+.dek{font-size:clamp(18px,2.2vw,22px);color:var(--ink-2);max-width:56ch;margin-top:22px;line-height:1.5}
+.mast-meta{
+  display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:32px;
+  font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-3);
+}
+.mast-meta b{color:var(--ink-2);font-weight:600}
+
+/* ============================ SECTIONS ============================ */
+.sec{display:grid;grid-template-columns:66px minmax(0,1fr);gap:0 30px;padding:56px 0 8px;border-top:1px solid var(--rule)}
+.sec:first-of-type{border-top:none}
+.rail{position:relative}
+.rail .n{
+  font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;letter-spacing:.08em;
+  color:var(--accent);position:sticky;top:22px;display:block;
+}
+.rail::after{content:"";position:absolute;left:5px;top:34px;bottom:8px;width:1px;background:var(--rule)}
+.sec > .body{min-width:0}
+h2{font-size:clamp(26px,3.4vw,38px);line-height:1.1;letter-spacing:-.02em;max-width:20ch}
+.sec-lede{font-size:19px;color:var(--ink-2);max-width:62ch;margin:16px 0 0}
+h3{font-size:20px;letter-spacing:-.01em;margin:44px 0 10px}
+h4{font-size:15px;letter-spacing:-.005em;margin:0 0 6px}
+p{margin:16px 0}
+.body > p, .body > ul, .body > ol{max-width:68ch}
+ul,ol{padding-left:20px;margin:16px 0}
+li{margin:7px 0}
+li::marker{color:var(--ink-3)}
+strong{font-weight:600}
+.tag{
+  display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:3px;
+  background:var(--tag-bg);color:var(--ink-2);vertical-align:2px;
+}
+@media (max-width:720px){
+  .sec{grid-template-columns:1fr;gap:0}
+  .rail::after{display:none}
+  .rail .n{position:static;margin-bottom:10px}
+}
+</style>
+<style>
+/* ============================ FINDINGS ============================ */
+.findings{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1px;background:var(--rule);
+  border:1px solid var(--rule);border-radius:8px;overflow:hidden;margin:30px 0 8px}
+.finding{background:var(--card);padding:22px 20px 20px;display:flex;flex-direction:column;gap:7px}
+.finding .k{
+  font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:34px;line-height:1;
+  letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:var(--ink);
+}
+.finding .k.up{color:var(--good)} .finding .k.down{color:var(--risk)} .finding .k.hot{color:var(--signal)}
+.finding .lab{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3)}
+.finding .d{font-size:14.5px;line-height:1.45;color:var(--ink-2)}
+
+/* ============================ CALLOUTS ============================ */
+.note{
+  border-left:3px solid var(--rule-2);background:var(--sunk);
+  padding:18px 22px;margin:28px 0;border-radius:0 6px 6px 0;max-width:68ch;
+}
+.note.risk{border-left-color:var(--risk)}
+.note.act{border-left-color:var(--accent)}
+.note.data{border-left-color:var(--signal)}
+.note p{margin:9px 0}
+.note p:first-child{margin-top:0} .note p:last-child{margin-bottom:0}
+.note .h{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:8px;
+}
+.note.risk .h{color:var(--risk)} .note.act .h{color:var(--accent)} .note.data .h{color:var(--signal)}
+
+/* ============================ TABLES ============================ */
+.tw{overflow-x:auto;margin:26px 0;border:1px solid var(--rule);border-radius:8px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:640px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);background:var(--sunk);white-space:nowrap;
+  position:sticky;top:0;
+}
+tbody tr:last-child td{border-bottom:none}
+td.n{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.name{font-weight:600;font-family:"Bricolage Grotesque",sans-serif}
+.src{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-3);line-height:1.4}
+.conf{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+  padding:2px 7px;border-radius:3px;white-space:nowrap}
+.conf.hi{background:color-mix(in srgb,var(--good) 16%,transparent);color:var(--good)}
+.conf.md{background:color-mix(in srgb,var(--signal) 18%,transparent);color:var(--signal)}
+.conf.lo{background:color-mix(in srgb,var(--risk) 15%,transparent);color:var(--risk)}
+
+/* ============================ FIGURES ============================ */
+figure{margin:34px 0;background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:22px 22px 16px}
+figcaption{margin:0 0 18px}
+figcaption .ft{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:17px;letter-spacing:-.01em;display:block}
+figcaption .fs{font-size:14px;color:var(--ink-2);margin-top:5px;display:block;max-width:70ch;line-height:1.45}
+.chart{width:100%}
+.chart svg{width:100%;height:auto;display:block;overflow:visible}
+.axis-t{font-family:"IBM Plex Mono",monospace;font-size:10.5px;fill:var(--ink-3);letter-spacing:.04em}
+.cat-t{font-family:"Source Serif 4",serif;font-size:13px;fill:var(--ink-2)}
+.val-t{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;fill:var(--ink);font-variant-numeric:tabular-nums}
+.grid-l{stroke:var(--rule);stroke-width:1}
+.base-l{stroke:var(--rule-2);stroke-width:1}
+.hit{fill:transparent;cursor:default}
+.legend{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:16px;padding-top:14px;border-top:1px solid var(--rule)}
+.legend .li{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--ink-2)}
+.legend .sw{width:11px;height:11px;border-radius:2.5px;flex:none}
+.foot{margin-top:14px;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-3);line-height:1.5}
+details.tbl{margin-top:12px}
+details.tbl summary{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-3);cursor:pointer;padding:5px 0;
+}
+details.tbl summary:hover{color:var(--accent)}
+details.tbl .tw{margin:10px 0 0}
+details.tbl table{min-width:380px}
+
+/* ============================ TOOLTIP ============================ */
+#tip{
+  position:fixed;z-index:99;pointer-events:none;opacity:0;transition:opacity .1s;
+  background:var(--tip-bg);color:var(--tip-ink);padding:9px 12px;border-radius:6px;
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;line-height:1.5;max-width:290px;
+  box-shadow:0 8px 24px -8px rgba(0,0,0,.5);
+}
+#tip b{font-weight:600;font-size:12.5px}
+#tip .v{font-variant-numeric:tabular-nums}
+
+/* ============================ TIMELINE ============================ */
+.tl{margin:30px 0;display:flex;flex-direction:column;gap:1px;background:var(--rule);
+  border:1px solid var(--rule);border-radius:8px;overflow:hidden}
+.tl-row{background:var(--card);padding:20px 22px;display:grid;grid-template-columns:112px minmax(0,1fr);gap:20px}
+.tl-row .yr{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;color:var(--accent);
+  font-variant-numeric:tabular-nums;padding-top:2px}
+.tl-row .yr small{display:block;font-weight:400;font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-3);margin-top:6px}
+.tl-row h4{margin-bottom:5px}
+.tl-row p{margin:0 0 10px;font-size:15px;color:var(--ink-2)}
+.tl-row p:last-child{margin-bottom:0}
+.tl-row .basis{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-3);line-height:1.5}
+@media (max-width:640px){.tl-row{grid-template-columns:1fr;gap:10px}}
+
+/* ============================ PLAYBOOK ============================ */
+.pb{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;background:var(--rule);
+  border:1px solid var(--rule);border-radius:8px;overflow:hidden;margin:28px 0}
+.pb-c{background:var(--card);padding:22px 20px}
+.pb-c .ph{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);display:block;margin-bottom:10px}
+.pb-c h4{font-size:17px;margin-bottom:10px}
+.pb-c ul{margin:0;padding-left:17px;font-size:14.5px}
+.pb-c li{margin:6px 0;color:var(--ink-2)}
+.pb-c .tgt{margin-top:14px;padding-top:12px;border-top:1px solid var(--rule);
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-2)}
+.pb-c .tgt b{color:var(--ink);font-weight:600}
+
+/* ============================ MISC ============================ */
+.hr{height:1px;background:var(--rule);margin:52px 0;border:none}
+.closer{border-top:2px solid var(--ink);margin-top:64px;padding-top:32px}
+.closer p{font-size:18px;max-width:64ch}
+</style>
+
+<div id="tip" role="status" aria-live="polite"></div>
+
+<div class="wrap">
+
+<header class="mast">
+  <div class="eyebrow">
+    <span>Laporan Intelijen Industri</span>
+    <span>&middot;</span>
+    <span>Agustus 2026</span>
+    <span>&middot;</span>
+    <span>Horizon 2026&ndash;2031</span>
+    <span>&middot;</span>
+    <span>Disusun untuk: mahasiswa</span>
+  </div>
+  <h1>Peta Industri Indonesia 2026&ndash;2031</h1>
+  <p class="dek">Ke mana uang bergerak lima tahun ke depan, di mana pintu masuknya masih kebuka buat orang tanpa modal dan tanpa pengalaman, dan sektor mana yang kelihatan gede tapi sebenernya jebakan.</p>
+  <div class="mast-meta">
+    <span><b>18</b> pertentangan sumber ditandai</span>
+    <span><b>7</b> klaim gagal verifikasi, dibuang</span>
+    <span><b>10</b> sektor diskor</span>
+    <span>Data terakhir: <b>Agustus 2026</b></span>
+  </div>
+</header>
+
+<!-- ============================ 01 ============================ -->
+<section class="sec">
+  <div class="rail"><span class="n">01</span></div>
+  <div class="body">
+    <h2>Yang perlu lo tahu kalau cuma baca satu halaman</h2>
+    <p class="sec-lede">Enam angka ini yang paling menentukan keputusan lo lima tahun ke depan. Sisanya laporan ini cuma jelasin kenapa.</p>
+
+    <div class="findings">
+      <div class="finding">
+        <span class="k down">6,13%</span>
+        <span class="lab">Pengangguran lulusan S1+</span>
+        <span class="d">Terhadap pengangguran nasional 4,68%. Ijazah masih ngangkat, tapi udah nggak jadi perisai.</span>
+      </div>
+      <div class="finding">
+        <span class="k down">&minus;7,7%</span>
+        <span class="lab">Lapangan kerja junior</span>
+        <span class="d">Di perusahaan pengadopsi AI generatif, relatif terhadap yang tidak mengadopsi, dalam ~6 kuartal (studi Harvard, 60+ juta pekerja).</span>
+      </div>
+      <div class="finding">
+        <span class="k up">20,1%</span>
+        <span class="lab">CAGR keamanan siber RI</span>
+        <span class="d">Pasar tumbuh paling cepat di antara sektor yang gue ukur. Defisit talentanya parah.</span>
+      </div>
+      <div class="finding">
+        <span class="k hot">6 juta</span>
+        <span class="lab">Kekurangan talenta digital</span>
+        <span class="d">Selisih target 9 juta talenta digital 2030 dengan yang sudah ada. Suplai kampus cuma 100&ndash;200 ribu/tahun.</span>
+      </div>
+      <div class="finding">
+        <span class="k down">&minus;49%</span>
+        <span class="lab">Pendanaan startup 2025</span>
+        <span class="d">Tinggal US$355,7 juta. "Kerja di startup" udah bukan rencana karier yang aman.</span>
+      </div>
+      <div class="finding">
+        <span class="k up">Rp30&ndash;60jt</span>
+        <span class="lab">Spesialis cloud/AI, klien global</span>
+        <span class="d">Per bulan. Bandingkan rata-rata upah buruh nasional: Rp3,29 juta.</span>
+      </div>
+    </div>
+
+    <div class="note act">
+      <span class="h">Kesimpulan di depan</span>
+      <p>Indonesia lima tahun ke depan bukan cerita "semua sektor naik". Yang naik itu <strong>infrastruktur</strong> &mdash; listrik, pusat data, pengolahan mineral, keamanan sistem &mdash; sementara <strong>lapisan aplikasi</strong> (startup konsumen, konten, jasa kreatif generik) justru sedang dikompresi dari dua sisi: modal yang kabur dan AI generatif yang menelan pekerjaan pemula.</p>
+      <p>Buat mahasiswa tanpa modal, taruhan dengan rasio imbal-risiko terbaik adalah <strong>keahlian teknis yang nempel ke infrastruktur itu</strong>, dimonetisasi lewat dua jalur sekaligus: kerja lokal untuk jaringan dan stabilitas, plus kontrak global untuk selisih kurs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 02 ============================ -->
+<section class="sec">
+  <div class="rail"><span class="n">02</span></div>
+  <div class="body">
+    <h2>Titik berangkat: ekonomi yang tumbuh tapi nggak terasa</h2>
+    <p class="sec-lede">Angka nasional bagus. Pengalaman orang per orang nggak. Jarak antara keduanya itu justru yang menjelaskan pasar kerja yang lo hadapi.</p>
+
+    <p>Ekonomi Indonesia tumbuh <strong>5,29% (yoy) pada kuartal II-2026</strong>, naik dari 5,12% di periode yang sama tahun sebelumnya. Sumber pertumbuhan terbesar datang dari industri pengolahan (0,90 poin persentase), perdagangan (0,83 pp), konstruksi (0,62 pp), dan informasi &amp; komunikasi (0,48 pp). Sektor infokom sendiri tumbuh <strong>6,97%</strong> &mdash; jauh di atas rata-rata nasional.</p>
+
+    <p>Lembaga internasional sekarang hampir sepakat soal 2026. IMF menahan di <strong>5,0%</strong> (WEO Update, Juli 2026), Bank Dunia juga di <strong>5,0%</strong> (Juni 2026), dan ADB paling optimistis di <strong>5,2%</strong>. Untuk 2027, Bank Dunia dan ADB sama-sama di 5,2%, IMF di 5,1%.</p>
+
+    <div class="note data">
+      <span class="h">Angka yang sering dikutip tapi sudah basi</span>
+      <p>Lo mungkin masih nemu berita "Bank Dunia pangkas proyeksi Indonesia ke <strong>4,7%</strong>". Itu dari <em>East Asia and Pacific Economic Update</em> April 2026 dan <strong>sudah digantikan</strong> pada Juni 2026 dengan revisi naik ke 5,0%. Kalau ada artikel yang masih memakai 4,7% untuk menggambarkan pandangan Bank Dunia hari ini, artikel itu ketinggalan dua rilis.</p>
+    </div>
+
+    <h3>Tapi di bawah angka itu, ada tiga retakan</h3>
+
+    <p><strong>Pertama, ijazah berhenti jadi perisai.</strong> Tingkat pengangguran terbuka nasional 4,68% (Februari 2026), tapi untuk lulusan pendidikan tinggi &mdash; D4, S1, S2, S3 &mdash; angkanya <strong>6,13%</strong>. Per Mei 2026 ada <strong>1.033.182 sarjana menganggur</strong>, setara 14,31% dari total 7,22 juta penganggur nasional. Lo bukan sedang bersaing dengan orang yang nggak kuliah; lo bersaing dengan satu juta orang yang persis kayak lo.</p>
+
+    <p>Tapi ada nuansa yang sering dipelintir berita, dan lo perlu tahu supaya nggak salah ambil kesimpulan: <strong>lulusan universitas bukan kelompok paling menganggur.</strong> Lulusan SMK justru lebih tinggi di <strong>7,74%</strong> dan SMA di <strong>6,23%</strong>. Jadi kuliah tetap menaikkan posisi lo relatif terhadap alternatifnya. Yang hilang bukan nilai ijazahnya &mdash; yang hilang adalah <em>jaminannya</em>. Semua jalur pendidikan formal sekarang berada di atas rata-rata pengangguran nasional, dan itu menandakan masalahnya struktural di sisi permintaan tenaga kerja, bukan di jurusan yang lo pilih.</p>
+
+    <p><strong>Kedua, kelas menengah menyusut.</strong> Jumlahnya turun dari <strong>57,33 juta (2019) ke 47,85 juta (2024)</strong>, dan menembus ke bawah 47 juta pada 2025. Hampir 10 juta orang keluar dari kelas menengah dalam lima tahun. Ini langsung memukul setiap bisnis yang jualan ke konsumen domestik &mdash; termasuk hampir semua startup yang mungkin mau lo lamar.</p>
+
+    <p><strong>Ketiga, upahnya sendiri rendah.</strong> Rata-rata upah buruh nasional adalah <strong>Rp3,39 juta per bulan</strong> (BPS, Mei 2026), naik tipis dari Rp3,29 juta pada Februari 2026. Ingat itu <em>rata-rata</em> &mdash; artinya sebagian besar pekerja ada di bawahnya. Angka ini penting sebagai pembanding: setiap jalur yang gue bahas di bagian 07 gue ukur terhadap Rp3,39 juta, bukan terhadap angan-angan.</p>
+
+    <div class="note data">
+      <span class="h">Cara baca angka pertumbuhan pasar</span>
+      <p>Sepanjang laporan ini gue pakai CAGR &mdash; laju pertumbuhan majemuk tahunan. Angka dari lembaga riset pasar komersial (Mordor, IMARC, Ken Research, Data Bridge) adalah <em>estimasi berbayar dengan metodologi yang nggak dipublikasikan</em>. Perlakukan sebagai arah, bukan presisi. Angka dari BPS, IMF, Bank Dunia, dan e-Conomy SEA punya metodologi terbuka dan gue bobot lebih tinggi. Setiap angka di laporan ini ada sumber dan tanggalnya di bagian 08.</p>
+    </div>
+
+    <figure>
+      <figcaption>
+        <span class="ft">Berapa cepat tiap pasar tumbuh, dibanding ekonomi secara keseluruhan</span>
+        <span class="fs">Laju pertumbuhan majemuk tahunan (CAGR) dari proyeksi pasar masing-masing sektor. Dua batang terbawah adalah pertumbuhan <em>aktual</em> kuartal II-2026 dari BPS, dipakai sebagai garis dasar &mdash; bukan proyeksi.</span>
+      </figcaption>
+      <div class="chart" id="c-cagr"></div>
+      <div class="legend" id="l-cagr"></div>
+      <p class="foot">Sektor dengan CAGR di bawah PDB nasional secara efektif sedang menyusut relatif terhadap ekonomi.</p>
+    </figure>
+  </div>
+</section>
+
+<!-- ============================ 03 ============================ -->
+<section class="sec">
+  <div class="rail"><span class="n">03</span></div>
+  <div class="body">
+    <h2>Dua tekanan yang mengubah aturan main buat pemula</h2>
+    <p class="sec-lede">Ini bagian yang paling jarang masuk ke saran karier yang lo dengar dari kampus. Keduanya bekerja spesifik terhadap orang yang belum punya pengalaman.</p>
+
+    <h3>Tekanan pertama: AI memakan anak tangga terbawah</h3>
+
+    <p>Working paper Harvard oleh Seyed Mahdi Hosseini Maasoum dan Guy Lichtinger &mdash; judulnya <em>Generative AI as Seniority-Biased Technological Change</em> (Agustus 2025) &mdash; menganalisis data resume dan lowongan mencakup <strong>lebih dari 60 juta pekerja di sekitar 285.000 perusahaan AS (2015&ndash;2025)</strong>. Temuannya: di perusahaan yang mengadopsi AI generatif, lapangan kerja junior turun sekitar <strong>7,7% relatif terhadap perusahaan yang tidak mengadopsi</strong>, dalam kurang lebih enam kuartal setelah adopsi. Sementara di perusahaan yang sama, jumlah karyawan senior justru terus naik.</p>
+
+    <p>Yang paling penting dari paper itu bukan besaran angkanya, tapi <strong>mekanismenya: penurunan terjadi lewat perlambatan rekrutmen, bukan PHK.</strong> Perusahaan nggak memecat juniornya &mdash; mereka berhenti membuka pintu. Buat lo yang belum di dalam, itu justru bentuk yang paling merugikan.</p>
+
+    <div class="note risk">
+      <span class="h">Angka yang beredar dan salah &mdash; jangan ikut menyebarkan</span>
+      <p>Lo hampir pasti bakal nemu klaim <strong>"rekrutmen entry-level turun 80%"</strong> yang dikaitkan ke paper Harvard ini. Itu berasal dari <strong>judul artikel Forbes (Mei 2026), bukan dari isi papernya.</strong> Bahkan kalau diterima apa adanya, itu penurunan kumulatif, bukan laju per kuartal &mdash; dan "80% per kuartal" secara aritmetika mustahil: dalam tiga tahun rekrutmen entry-level bakal tinggal di bawah 0,1% dari basisnya. Angka yang benar dari paper tersebut adalah <strong>~7,7%</strong>. Gue sempat memakai angka 80% di draf laporan ini sebelum diperiksa ulang.</p>
+    </div>
+
+    <p>Data pendukung lain menunjuk ke arah yang sama, tapi masing-masing mengukur hal yang <em>berbeda</em> dan sering dicampur orang. Lowongan entry-level di AS turun sekitar <strong>35% sejak awal 2023</strong> (jadi rentang tiga tahun, bukan 18 bulan seperti yang sering dikutip). Pengangguran lulusan kuliah usia 22&ndash;27 tahun di kisaran <strong>5,6&ndash;5,7%</strong> (ukuran NY Fed, akhir 2025), dibanding sekitar 4,2% untuk seluruh pekerja. <strong>Lowongan</strong> developer entry-level turun sekitar 67% &mdash; tapi catat: itu lowongan, bukan perekrutan, dan bukan jumlah orang yang bekerja. Stanford Digital Economy Lab mengukur hal ketiga: <strong>jumlah pekerja programming usia 22&ndash;25 turun sekitar 20%</strong>. Tiga metrik, tiga angka, sering ditukar-tukar di pemberitaan.</p>
+
+    <p>Mekanismenya spesifik dan layak lo pahami: AI generatif paling jago pada <strong>tugas terkodifikasi yang bisa diverifikasi</strong> &mdash; jenis yang dipelajari dari buku dan materi pelatihan, bukan yang terakumulasi dari pengalaman lapangan. Itu persis definisi pekerjaan awal karier. Sementara itu, di perusahaan yang sama, jumlah karyawan senior justru terus tumbuh.</p>
+
+    <div class="note risk">
+      <span class="h">Implikasi langsung</span>
+      <p>Strategi "masuk dulu jadi junior, nanti belajar sambil jalan" adalah strategi yang paling terdampak. Anak tangga itu sedang dicabut. Yang menggantikannya: <strong>lo harus datang dengan bukti kerja, bukan potensi.</strong> Portofolio yang bisa diverifikasi mengalahkan IPK di hampir semua jalur yang gue bahas di laporan ini.</p>
+      <p>Pengecualian yang dilaporkan: lowongan entry-level di sektor kesehatan justru naik melawan tren ini &mdash; karena pekerjaannya butuh kehadiran fisik, lisensi, dan penilaian situasional yang belum bisa dikodifikasi. Angka spesifiknya (naik 13 poin persentase) belum sempat gue verifikasi ke sumber primer, jadi ambil arahnya aja, jangan angkanya.</p>
+    </div>
+
+    <h3>Tekanan kedua: modal ventura kabur dari Indonesia</h3>
+
+    <p>Pendanaan startup teknologi Indonesia jatuh keras &mdash; tapi angkanya harus dibaca hati-hati, karena <strong>ada dua pelacak yang aturan hitungnya beda dan angkanya nggak boleh dicampur.</strong> DailySocial/DiscoveryShift menghitung himpunan putaran yang lebih luas; Tracxn cuma menghitung putaran ekuitas terverifikasi.</p>
+
+    <p>Versi DailySocial: <strong>US$694,6 juta (2024) turun ke US$355,7 juta (2025)</strong>, yaitu &minus;49%, lewat 91 kesepakatan. Versi Tracxn: <strong>US$1,3 miliar (2023) turun ke US$323 juta (2024)</strong>, yaitu &minus;75%. Untuk 2026, Tracxn mencatat <strong>US$50,7 juta di semester I</strong> dari 11 putaran, dibanding US$170 juta dari 26 putaran di semester I 2025 &mdash; turun 70,13%. Apa pun pelacak yang lo pakai, arahnya sama dan curam.</p>
+
+    <p>Indonesia kini peringkat tiga di Asia Tenggara, di belakang Singapura (US$4,2 miliar) dan Vietnam (US$366 juta) &mdash; padahal ekonominya jauh lebih besar dari keduanya. Hanya sekitar <strong>10% modal ventura</strong> di ekonomi digital Indonesia berasal dari sumber domestik, jadi sektor ini sangat rentan pada suku bunga dan selera risiko luar negeri.</p>
+
+    <figure>
+      <figcaption>
+        <span class="ft">Pendanaan startup teknologi Indonesia, menurut dua pelacak</span>
+        <span class="fs">Dalam juta dolar AS. Dua pelacak ini pakai aturan inklusi berbeda, jadi gue tampilkan sebagai dua seri terpisah &mdash; bukan satu garis tren. Menggabungkannya jadi satu deret adalah kesalahan yang umum ditemui di pemberitaan.</span>
+      </figcaption>
+      <div class="chart" id="c-fund"></div>
+      <div class="legend" id="l-fund"></div>
+      <p class="foot">DailySocial/DiscoveryShift: setahun penuh, himpunan putaran lebih luas. Tracxn: putaran ekuitas terverifikasi, dibandingkan semester ke semester. Angka US$3,24 miliar untuk 2022 yang banyak beredar nggak berhasil gue verifikasi, jadi nggak gue pakai.</p>
+    </figure>
+
+    <p>Ini bukan alasan untuk menghindari teknologi. Ini alasan untuk <strong>memisahkan "teknologi" dari "startup"</strong>. Uang yang keluar dari startup konsumen tidak menguap &mdash; sebagian besar berpindah ke infrastruktur, yang justru dibahas di bagian berikutnya.</p>
+  </div>
+</section>
+
+<!-- ============================ 04 ============================ -->
+<section class="sec">
+  <div class="rail"><span class="n">04</span></div>
+  <div class="body">
+    <h2>Sepuluh sektor, dengan angkanya</h2>
+    <p class="sec-lede">Untuk tiap sektor: ukuran pasar, ke mana arahnya, kenapa, pintu masuk buat mahasiswa, dan risiko yang jarang disebut orang.</p>
+
+    <h3>Kelompok A &mdash; Teknis dalam, tahan AI</h3>
+
+    <p><strong>1. Infrastruktur AI &amp; pusat data.</strong> Pasar pusat data Indonesia bernilai <strong>US$1,83 miliar (2026)</strong> dan diproyeksikan tumbuh 13,71% per tahun menjadi <strong>US$3,48 miliar (2031)</strong> &mdash; itu versi Mordor, yang mengukur <em>pendapatan layanan kolokasi</em>. IMARC memberi angka jauh lebih besar (US$3,1 miliar pada 2025 ke US$8,4 miliar pada 2034) karena mengukur <em>seluruh pasar infrastruktur pusat data</em>: server, penyimpanan, jaringan, perangkat lunak, jasa, termasuk fasilitas milik perusahaan sendiri. Keduanya bukan angka yang bertentangan &mdash; keduanya mengukur benda yang berbeda. Uangnya sudah masuk, bukan wacana: Edgnex (kini DAMAC Digital) mengumumkan investasi <strong>US$2,3 miliar untuk fasilitas 144 MW siap-AI di Jakarta</strong> pada Juni 2025, dengan fase pertama ditargetkan beroperasi Desember 2026.</p>
+    <div class="note data">
+      <span class="h">Angka Microsoft yang sering disalahartikan</span>
+      <p>Berita umumnya menulis "Microsoft berinvestasi US$2,5 miliar di Indonesia". Itu keliru dua kali. <strong>US$2,5 miliar adalah estimasi <em>kontribusi ekonomi</em> dari region cloud tersebut</strong> (bagian dari total US$15,2 miliar nilai yang dihasilkan Microsoft bersama mitra dan pelanggannya, 2025&ndash;2028 versi IDC) &mdash; bukan belanja modal Microsoft. Komitmen modal Microsoft yang sebenarnya adalah <strong>US$1,7 miliar</strong>, diumumkan April 2024. Region <em>Indonesia Central</em> sendiri mencapai ketersediaan umum pada 15 April 2025, dengan acara peluncuran 27 Mei 2025.</p>
+      <p>Soal lapangan kerja, sumbernya juga berbeda-beda: angka <strong>60.000</strong> berasal dari Kementerian Komunikasi dan Digital, sementara estimasi ekosistem versi IDC sendiri <strong>lebih dari 106.000</strong>. Gue nggak punya dasar untuk memilih salah satu, jadi gue sebut keduanya.</p>
+    </div>
+    <p>Di level global, ini bagian dari gelombang yang jauh lebih besar: IDC memproyeksikan pasar semikonduktor menembus <strong>US$1,29 triliun pada 2026</strong> dan US$1,75 triliun pada 2030, dengan semikonduktor pusat data saja mencapai US$843,2 miliar pada 2030 &mdash; hampir separuh total pasar. Perlu konteks supaya nggak salah baca: lonjakan 2026 itu <strong>+52,8% dalam setahun, tapi itu lonjakan sekali akibat harga memori</strong> (pendapatan DRAM hampir tiga kali lipat karena permintaan HBM), bukan laju pertumbuhan yang berkelanjutan. Sebagai pembanding, pertumbuhan 2025 ada di kisaran 17,6%.</p>
+    <p><span class="tag">Pintu masuk</span> Bukan lewat riset AI. Lewat operasional: jaringan, Linux, cloud, kelistrikan dan pendinginan, otomasi infrastruktur. Sertifikasi berjenjang jelas dan bisa diambil tanpa gelar spesifik. <span class="tag">Risiko</span> Pekerjaan terkonsentrasi geografis di Jabodetabek dan Batam; sebagian besar posisi teknis tinggi awalnya diisi ekspatriat.</p>
+
+    <p><strong>2. Keamanan siber.</strong> Sektor dengan pertumbuhan tercepat di daftar ini: dari <strong>US$1,62 miliar (2026) ke US$4,06 miliar (2031)</strong>, CAGR <strong>20,12%</strong> (Mordor, edisi 2026&ndash;2031). Segmen managed services tumbuh paling cepat justru <em>karena</em> kelangkaan talenta &mdash; perusahaan menyerah merekrut sendiri dan mengalihdayakan fungsi SOC. Sebagai pembanding lintas vendor, IMARC menempatkan pasar ini di sekitar US$6,7 miliar pada 2034 dengan CAGR 19,40% &mdash; arah sama, level beda.</p>
+    <p><span class="tag">Pintu masuk</span> Paling jelas dari semua sektor: jalur sertifikasi terstruktur, lab yang bisa dikerjakan dari kamar kos, dan rekrutmen yang secara budaya memang menerima orang tanpa gelar formal asal bisa buktiin kemampuan. <span class="tag">Risiko</span> Peran SOC tingkat 1 adalah pekerjaan terkodifikasi &mdash; ini justru kategori yang paling rentan otomasi AI. Rencanakan naik ke threat hunting atau security architecture dalam 24&ndash;36 bulan, jangan berhenti di tier 1.</p>
+
+    <p><strong>3. Energi terbarukan.</strong> Bauran EBT mencapai <strong>17,89% pada April 2026</strong>, melampaui target pemerintah 16,46% &mdash; naik dari 14,65% (2024) dan 15,75% (2025). RUPTL PLN 2025&ndash;2034 menargetkan <strong>69,5 GW kapasitas baru</strong>, yang <em>di dalamnya</em> sudah termasuk 42,6 GW energi terbarukan dan 10,3 GW penyimpanan (sisanya gas dan batu bara). Total investasi <strong>Rp2.967 triliun</strong> (~US$182 miliar), sekitar 73% diharapkan dari pengembang swasta dan IPP. Rincian energi terbarukannya: surya 17,1 GW, hidro 11,7 GW, angin 7,2 GW, panas bumi 5,2 GW, bioenergi 0,9 GW, nuklir 0,5 GW.</p>
+    <div class="note data">
+      <span class="h">Dua angka yang sering ketuker</span>
+      <p><strong>"100 GW surya" dan "100% listrik terbarukan dalam satu dekade" itu dua target berbeda.</strong> Yang punya tenggat satu dekade adalah target 100% listrik terbarukan. Target 100 GW surya justru tenggatnya jauh lebih pendek &mdash; Presiden menyebut angka yang berbeda-beda di kesempatan berbeda: "dua tahun", "tiga tahun", dan "sebelum 2029". Komposisinya 80 GW tersebar (skala desa, dipasangkan dengan baterai) plus 20 GW skala utilitas, dan butuh sekitar US$78 miliar sampai 2030. Perlu dicatat: 100 GW ini <em>di luar</em> 17,1 GW yang ada di RUPTL.</p>
+      <p>Satu lagi soal istilah: metrik resmi Indonesia adalah <strong>EBT &mdash; energi baru <em>dan</em> terbarukan</strong>, yang lebih luas dari "terbarukan" saja karena bisa mencakup sumber "baru" yang bukan terbarukan. Jadi 17,89% itu sedikit lebih optimistis daripada angka energi terbarukan murni.</p>
+    </div>
+    <p><span class="tag">Pintu masuk</span> Butuh latar teknik (elektro, mesin, sipil) atau jalur vokasi bersertifikat. Bukan jalur cepat. <span class="tag">Risiko</span> Riwayat Indonesia dalam mengeksekusi target energi buruk; angka RUPTL adalah rencana, bukan komitmen. Uang swasta 73% itu asumsi, bukan fakta.</p>
+
+    <h3>Kelompok B &mdash; Produk fisik &amp; lokasi</h3>
+
+    <div class="note data">
+      <span class="h">Soal "9 juta talenta digital"</span>
+      <p>Angka ini dipakai di mana-mana, termasuk di ringkasan laporan ini, jadi lo perlu tahu asalnya. <strong>9 juta adalah estimasi Bank Dunia (2018) untuk periode 15 tahun 2015&ndash;2030</strong> &mdash; bukan kebutuhan ke depan yang dihitung dari hari ini. Sebagian besar jendela waktunya sudah lewat. Turunan "600 ribu per tahun" itu sekadar 9 juta dibagi 15 tahun; <strong>estimasi pemerintah sendiri lebih rendah, sekitar 453 ribu per tahun.</strong> Angka "3 juta sudah tercetak" juga nggak berhasil gue lacak ke rilis resmi. Yang lebih bisa dipegang: pejabat Kemenkomdigi pada Agustus 2026 menyebut kekurangannya "sekitar 6 juta". Perlakukan sebagai indikasi arah kelangkaan, bukan target yang presisi.</p>
+    </div>
+
+    <p><strong>4. Hilirisasi nikel &amp; baterai EV.</strong> Cerita paling spektakuler dalam angka: nilai ekspor nikel olahan dilaporkan melonjak <strong>sekitar 26 kali lipat, dari US$1,5 miliar (2014) ke US$38,5 miliar (2025)</strong> &mdash; meski angka 2025 ini cuma muncul di satu paper akademik (<em>Mineral Economics</em>, Springer) dan belum gue temukan konfirmasi dari lembaga pemerintah, jadi perlakukan dengan hati-hati. Pemerintah menawarkan peluang investasi <strong>US$121 miliar</strong> untuk ekosistem baterai EV terintegrasi.</p>
+    <div class="note risk">
+      <span class="h">Angka yang harus lo curigai</span>
+      <p>Klaim strategi jangka panjang &mdash; investasi US$618 miliar, ekspor US$857 miliar, 3 juta lapangan kerja &mdash; adalah <strong>target aspiratif pemerintah, bukan proyeksi berbasis model</strong>. Perlakukan berbeda dari angka BPS.</p>
+      <p>Dua risiko struktural yang nyata: Indonesia memproduksi sekitar <strong>60&ndash;62% nikel tambang dunia tapi sekitar 75% kapasitas pemurniannya dikendalikan pemodal Tiongkok</strong> (data kepemilikan per 2023; Tsingshan dan Jiangsu Delong saja lebih dari 70%), jadi nilai tambahnya tidak sepenuhnya tinggal di sini. Dan yang lebih mendasar: menurut IEA, <strong>baterai LFP yang sama sekali tidak memakai nikel sudah melewati 55% dari pemasangan baterai EV global pada 2025</strong>, naik dari hampir 50% pada 2024. Seluruh taruhan nasional ini bertumpu pada kimia baterai yang pangsa pasarnya sedang turun.</p>
+      <p>Satu angka yang sering beredar &mdash; produksi nikel olahan naik dari 390 ribu ton (2019) ke 1.629 ribu ton (2024) &mdash; <strong>nggak gue pakai</strong>, karena gue nggak berhasil melacaknya ke sumber mana pun (USGS, INSG, maupun lembaga pemerintah), dan seri data pembanding memberi angka yang jauh berbeda.</p>
+    </div>
+    <p><span class="tag">Pintu masuk</span> Teknik metalurgi, kimia, K3, otomasi industri &mdash; dan kesediaan pindah ke Sulawesi Tengah, Halmahera, atau Morowali. Gaji jauh di atas rata-rata, tapi lokasi adalah harga yang lo bayar.</p>
+
+    <p><strong>5. Manufaktur "China+1".</strong> Pada kuartal I-2026 saja, <strong>633 perusahaan mengajukan rencana pabrik baru senilai Rp418,62 triliun</strong> (sekitar US$25 miliar), dengan perkiraan <strong>219.684 lapangan kerja</strong>. FDI Tiongkok naik dari US$0,6 miliar (2015) ke US$8,2 miliar (2022) dan bertahan di US$8,1 miliar (2024). Konsentrasinya di koridor timur Jakarta: Cikarang, Karawang, Subang, dan Semarang.</p>
+    <p><strong>Dua kaveat penting soal angka itu.</strong> Pertama, itu investasi <em>rencana</em> yang dilaporkan sendiri oleh perusahaan lewat sistem SIINas &mdash; bukan investasi terealisasi dan bukan angka terverifikasi BKPM. Kedua, sebarannya jauh lebih sempit dari kesan "633 perusahaan": <strong>industri logam dasar sendirian menyumbang Rp218,04 triliun, yaitu 52% dari total, dan cuma datang dari 24 perusahaan.</strong> Peluang kerjanya terkonsentrasi, bukan merata.</p>
+    <p><span class="tag">Pintu masuk</span> Teknik industri, manajemen rantai pasok, kendali mutu, dan &mdash; ini yang sering diremehkan &mdash; <strong>kemampuan bahasa Mandarin</strong>, yang di koridor ini adalah pengganda gaji yang nyata. <span class="tag">Risiko</span> Sangat tergantung kebijakan tarif AS dan hubungan dagang; bisa berbalik cepat.</p>
+
+    <p><strong>6. Halal &amp; konsumen.</strong> Pasar halal Indonesia diperkirakan tumbuh dari <strong>US$318,91 miliar (2024) ke US$922,57 miliar (2032)</strong>, CAGR 14,2%. Ekspor produk halal Januari&ndash;Oktober 2024 mencapai <strong>US$41,4 miliar</strong>, dengan makanan olahan halal mendominasi sekitar 81% (US$33,61 miliar). Tujuan terbesarnya AS (US$7,29 miliar), Tiongkok (US$6,17 miliar), dan Pakistan (US$2,05 miliar). Secara global, belanja ekonomi halal US$2,43 triliun (2023) menuju US$3,36 triliun (2028).</p>
+    <p>Tapi periksa arahnya: <strong>US$41,4 miliar itu justru turun dari US$42,3 miliar di periode yang sama tahun 2023.</strong> Dan angka utama sektor ini kacau &mdash; ada yang menyebut nilai <em>perdagangan</em> produk halal 2024 sebesar US$53,73 miliar, dan ada pejabat kementerian yang menyebut <em>ekspor</em> industri halal US$64,11 miliar. Tiga angka yang saling nggak kompatibel karena beda definisi dan beda keranjang produk. Kalau lo pakai salah satunya, sebutkan periode dan definisinya.</p>
+    <p><span class="tag">Pintu masuk</span> Modal rendah, terutama di sisi sertifikasi, ekspor, dan pemasaran digital lintas negara. <span class="tag">Risiko</span> Angka US$922 miliar itu dari lembaga riset komersial dengan definisi "pasar halal" yang sangat longgar &mdash; bisa mencakup hampir seluruh belanja konsumen muslim. Jangan pakai angka ini untuk keputusan besar.</p>
+
+    <h3>Kelompok C &mdash; Cepat masuk, margin menipis</h3>
+
+    <p><strong>7. Ekonomi digital &amp; e-commerce.</strong> GMV ekonomi digital Indonesia mendekati <strong>US$100 miliar pada 2025</strong>, tumbuh 14% setahun dan terbesar di Asia Tenggara. Laporan e-Conomy SEA 2025 memproyeksikan <strong>rentang US$180&ndash;340 miliar pada 2030</strong> &mdash; itu rentang, bukan satu angka dasar dengan batas atas. E-commerce adalah mesin utamanya: US$71 miliar (2025) menuju sekitar US$140 miliar (2030), atau sekitar tiga perempat dari keseluruhan.</p>
+    <p><span class="tag">Pintu masuk</span> Paling gampang dari semua sektor. <span class="tag">Risiko</span> Justru karena paling gampang: pemasaran generik, penulisan konten, dan desain grafis dasar adalah kategori yang paling cepat dikompresi AI generatif. Yang bertahan bergeser dari growth ke <strong>rantai pasok, analitik, dan optimasi margin</strong>.</p>
+
+    <figure>
+      <figcaption>
+        <span class="ft">Ekonomi digital Indonesia: komposisi 2025 dan 2030</span>
+        <span class="fs">GMV dalam miliar dolar AS, empat sektor inti (layanan keuangan digital dilaporkan terpisah dan nggak masuk hitungan ini). Panel bawah menunjukkan rentang proyeksi 2030 yang sebenarnya.</span>
+      </figcaption>
+      <div class="chart" id="c-gmv-mix"></div>
+      <div class="legend" id="l-gmv-mix"></div>
+      <div class="chart" id="c-gmv" style="margin-top:30px"></div>
+      <p class="foot">Catatan validitas: komponen 2030 kalau dijumlah menghasilkan ~188 miliar, dan itu <em>bukan</em> pertentangan dengan angka "180" yang sering dikutip &mdash; 180 adalah ujung bawah rentang yang dibulatkan, bukan estimasi titik yang harus cocok dengan penjumlahan komponen. Komponen 2025 menjumlah ke ~99 miliar, konsisten dengan judul ~US$100 miliar.</p>
+    </figure>
+
+    <p><strong>8. Ekonomi kreatif &amp; kekayaan intelektual.</strong> Kontribusi PDB ekonomi kreatif 2024 tercatat <strong>Rp1.611,2 triliun atau 7,28% PDB nasional</strong>, menyerap <strong>27,4 juta tenaga kerja</strong>. Sektor ini tumbuh 6,57% pada 2024 dan 6,86% pada 2025 &mdash; keduanya di atas pertumbuhan PDB nasional. Angka final setahun penuh 2025: <strong>ekspor US$31,94 miliar</strong> dan <strong>investasi Rp183,01 triliun</strong>, masing-masing 120% dan 134% dari target. RPJMN 2025&ndash;2029 menargetkan kontribusi PDB naik ke <strong>8,0&ndash;8,4% pada 2029</strong>, dengan insentif khusus untuk subsektor prioritas: film, gim, dan aplikasi.</p>
+    <p class="foot" style="max-width:68ch">Catatan: lo mungkin nemu angka ekspor 2025 sebesar US$26,68 miliar dan investasi Rp132,04 triliun. Itu bukan angka yang bertentangan &mdash; itu data parsial (Januari&ndash;Oktober dan kumulatif kuartal III) yang dirilis Desember 2025, lalu digantikan angka final pada Februari 2026.</p>
+    <p><span class="tag">Pintu masuk</span> Nyaris tanpa modal. <span class="tag">Risiko</span> Ini sektor dengan paparan AI generatif tertinggi di seluruh laporan. Bedanya tipis tapi menentukan: <strong>jasa kreatif</strong> (bikin desain per order) sedang dihancurkan; <strong>kepemilikan IP</strong> (punya karakter, gim, katalog musik sendiri) justru menguat karena biaya produksinya turun. Pilih sisi yang benar.</p>
+
+    <p><strong>9. Pariwisata.</strong> Target 2026: <strong>16&ndash;17,6 juta kunjungan wisatawan mancanegara</strong>, devisa <strong>US$22&ndash;24,7 miliar</strong>, kontribusi PDB 4,6&ndash;4,7%, dan 1,18 miliar perjalanan wisatawan nusantara.</p>
+    <p>Seberapa realistis? Sampai kuartal III-2025, pariwisata baru menyumbang <strong>3,96% PDB dengan devisa US$13,82 miliar</strong>. Jadi target 4,6&ndash;4,7% dan US$22&ndash;24,7 miliar itu lompatan besar, bukan kelanjutan tren. (Angka kontribusi PDB pun beredar dalam dua versi: 4,6&ndash;4,7% dari Kemenpar, 4,5&ndash;4,7% dari Menko Perekonomian.)</p>
+    <p><span class="tag">Pintu masuk</span> Rendah, terutama lewat jalur digital: manajemen properti sewa, konten destinasi, layanan berbahasa asing. <span class="tag">Risiko</span> Sangat siklikal dan sensitif terhadap guncangan eksternal. Ini target pemerintah, dan target pariwisata secara historis sering meleset.</p>
+
+    <h3>Kelompok D &mdash; Gerbang lisensi</h3>
+
+    <p><strong>10. Kesehatan.</strong> Pasar rumah sakit diproyeksikan mencapai <strong>US$55,10 miliar pada 2030</strong> (CAGR 7,6%), dan asuransi kesehatan dari US$16,8 miliar (2023) ke <strong>US$30,2 miliar (2030)</strong> (CAGR 9,4%). Dua angka ini datang dari lembaga riset komersial dan termasuk yang paling optimistis di pasarnya &mdash; IMARC dan Mordor menerbitkan valuasi yang jauh lebih rendah untuk pasar yang sama.</p>
+    <p>Yang jauh lebih kokoh adalah pendorong demografis dan epidemiologisnya. Pakai satu definisi konsisten &mdash; <em>lansia</em> versi Indonesia, yaitu 60 tahun ke atas: jumlahnya sekitar <strong>29 juta pada 2024 (~12% populasi)</strong> dan diproyeksikan mencapai <strong>74 juta pada 2050, sekitar 25% populasi</strong>. Beban penyakitnya juga jauh lebih besar dari yang biasa dikutip: Survei Kesehatan Indonesia 2023 menempatkan <strong>prevalensi hipertensi pada 30,8% orang dewasa &mdash; di orde 60 juta orang</strong>, dan penyandang diabetes <strong>melewati 20 juta pada 2024</strong>.</p>
+    <div class="note data">
+      <span class="h">Kenapa gue nggak pakai angka yang lebih kecil</span>
+      <p>Angka "19 juta hipertensi" dan "10 juta diabetes" beredar luas di laporan riset komersial. Keduanya <strong>bertentangan dengan data Kemenkes</strong> dan kemungkinan besar hanya menghitung kasus <em>terdiagnosis</em>, bukan prevalensi sebenarnya &mdash; masing-masing sekitar 3x dan 2x terlalu rendah. Kalau tujuannya menunjukkan besarnya kebutuhan layanan kesehatan, angka kecil itu justru menyesatkan ke arah yang salah.</p>
+    </div>
+    <p><span class="tag">Pintu masuk</span> Paling tertutup: butuh gelar dan lisensi, jangka panjang. <span class="tag">Kenapa tetap masuk daftar</span> Ini satu-satunya sektor di mana lowongan entry-level justru <em>naik</em> melawan tren AI. Kalau lo kebetulan sudah di jalur kesehatan, posisi lo lebih aman dari yang lo kira. Jalur samping yang terbuka tanpa lisensi klinis: informatika kesehatan, analitik klaim, teknologi medis, dan rantai pasok farmasi.</p>
+  </div>
+</section>
+
+<!-- ============================ 05 ============================ -->
+<section class="sec">
+  <div class="rail"><span class="n">05</span></div>
+  <div class="body">
+    <h2>Skoring: pertumbuhan itu cuma separuh cerita</h2>
+    <p class="sec-lede">Sektor yang tumbuh cepat nggak berguna kalau lo nggak bisa masuk. Empat sumbu di bawah ini yang benar-benar menentukan, dan bobotnya adalah penilaian gue &mdash; bukan data.</p>
+
+    <div class="note data">
+      <span class="h">Transparansi metode</span>
+      <p>Skor <strong>Pertumbuhan</strong> diturunkan dari CAGR terverifikasi di bagian 04 (data). Tiga sumbu lain &mdash; <strong>Akses</strong> (seberapa mungkin mahasiswa tanpa modal masuk dalam 12 bulan), <strong>Ketahanan AI</strong> (seberapa sulit pekerjaan intinya dikodifikasi), dan <strong>Ceiling gaji</strong> &mdash; adalah <em>penilaian subjektif gue</em> dengan skala 1&ndash;5. Gue pisahkan secara eksplisit supaya lo bisa nggak setuju sama bobotnya tanpa harus menolak datanya.</p>
+    </div>
+
+    <figure>
+      <figcaption>
+        <span class="ft">Matriks peluang: pertumbuhan pasar versus akses buat mahasiswa</span>
+        <span class="fs">Sumbu tegak dari data CAGR; sumbu datar dari penilaian. Ukuran lingkaran = ketahanan terhadap otomasi AI (makin besar makin tahan). Kuadran kanan-atas adalah tempat yang lo cari.</span>
+      </figcaption>
+      <div class="chart" id="c-matrix"></div>
+      <div class="legend" id="l-matrix"></div>
+    </figure>
+
+    <div class="tw">
+      <table>
+        <thead>
+          <tr>
+            <th>Sektor</th>
+            <th>Pertumbuhan</th>
+            <th>Akses</th>
+            <th>Tahan AI</th>
+            <th>Ceiling gaji</th>
+            <th>Skor</th>
+            <th>Putusan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="name">Infrastruktur AI &amp; pusat data</td><td class="n">5,0</td><td class="n">4,0</td><td class="n">5,0</td><td class="n">5,0</td><td class="n"><strong>4,75</strong></td><td>Taruhan utama</td></tr>
+          <tr><td class="name">Keamanan siber</td><td class="n">5,0</td><td class="n">4,3</td><td class="n">4,0</td><td class="n">4,0</td><td class="n"><strong>4,33</strong></td><td>Taruhan utama</td></tr>
+          <tr><td class="name">Halal &amp; konsumen</td><td class="n">4,0</td><td class="n">3,8</td><td class="n">4,0</td><td class="n">2,0</td><td class="n"><strong>3,45</strong></td><td>Sampingan layak</td></tr>
+          <tr><td class="name">Energi terbarukan</td><td class="n">4,2</td><td class="n">2,2</td><td class="n">5,0</td><td class="n">3,0</td><td class="n"><strong>3,60</strong></td><td>Butuh gelar teknik</td></tr>
+          <tr><td class="name">Hilirisasi nikel &amp; baterai</td><td class="n">3,8</td><td class="n">2,0</td><td class="n">4,0</td><td class="n">4,0</td><td class="n"><strong>3,45</strong></td><td>Bayar pakai lokasi</td></tr>
+          <tr><td class="name">Kesehatan</td><td class="n">4,0</td><td class="n">1,4</td><td class="n">5,0</td><td class="n">3,0</td><td class="n"><strong>3,35</strong></td><td>Cuma kalau udah di jalur</td></tr>
+          <tr><td class="name">Ekonomi kreatif &amp; IP</td><td class="n">3,2</td><td class="n">5,0</td><td class="n">2,0</td><td class="n">2,0</td><td class="n"><strong>3,05</strong></td><td>Hanya sisi kepemilikan IP</td></tr>
+          <tr><td class="name">Ekonomi digital / e-commerce</td><td class="n">3,0</td><td class="n">4,8</td><td class="n">2,0</td><td class="n">3,0</td><td class="n"><strong>3,20</strong></td><td>Pintu masuk, bukan tujuan</td></tr>
+          <tr><td class="name">Manufaktur China+1</td><td class="n">3,0</td><td class="n">2,8</td><td class="n">4,0</td><td class="n">3,0</td><td class="n"><strong>3,20</strong></td><td>Kuat kalau bisa Mandarin</td></tr>
+          <tr><td class="name">Pariwisata</td><td class="n">2,8</td><td class="n">4,0</td><td class="n">4,0</td><td class="n">2,0</td><td class="n"><strong>3,20</strong></td><td>Sampingan, bukan karier</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="foot" style="max-width:68ch">Skor = rata-rata keempat sumbu, dibulatkan dua desimal. Sumbu Pertumbuhan dinormalisasi dari CAGR: 5,0 untuk CAGR &ge;20%, 1,0 untuk CAGR &le;4%.</p>
+
+    <div class="note act">
+      <span class="h">Baca matriksnya begini</span>
+      <p>Kuadran kanan-bawah &mdash; ekonomi kreatif, e-commerce, pariwisata &mdash; gampang dimasuki <em>justru karena</em> semua orang bisa masuk. Itu bukan peluang, itu ruang tunggu. Berguna buat menghasilkan uang pertama dalam 90 hari, berbahaya kalau lo diam di situ selama lima tahun.</p>
+      <p>Kuadran kiri-atas &mdash; energi, hilirisasi, kesehatan &mdash; pertumbuhannya nyata tapi gerbangnya gelar, lisensi, atau relokasi. Kalau lo kebetulan sudah di jurusan itu, ini kabar bagus dan lo nggak perlu banting setir.</p>
+      <p>Kanan-atas cuma diisi dua: <strong>infrastruktur AI/pusat data dan keamanan siber</strong>. Keduanya tumbuh dua digit, keduanya kekurangan orang, dan keduanya menerima bukti kemampuan sebagai pengganti kredensial.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 06 ============================ -->
+<section class="sec">
+  <div class="rail"><span class="n">06</span></div>
+  <div class="body">
+    <h2>Prediksi lima tahun, dengan tingkat keyakinan</h2>
+    <p class="sec-lede">Gue pisahkan yang hampir pasti dari yang cuma skenario. Ramalan tanpa label keyakinan itu hiburan, bukan analisis.</p>
+
+    <div class="tl">
+      <div class="tl-row">
+        <div class="yr">2026&ndash;2027<small>Keyakinan tinggi</small></div>
+        <div>
+          <h4>Konstruksi infrastruktur digital memuncak</h4>
+          <p>Fasilitas pusat data yang pendanaannya sudah diumumkan masuk fase bangun dan komisioning. Permintaan melonjak untuk teknisi pusat data, teknisi jaringan, dan insinyur kelistrikan &mdash; bukan buat peneliti AI.</p>
+          <p class="basis">Dasar: komitmen Edgnex US$2,3 miliar/144 MW &middot; target Microsoft 60.000 pekerjaan sampai 2028 &middot; pasar tumbuh 13,71%/tahun</p>
+          <h4 style="margin-top:16px">Pasar kerja pemula tetap ketat</h4>
+          <p>Nggak ada dasar untuk berharap rekrutmen entry-level pulih dalam dua tahun ini. Portofolio terus mengalahkan ijazah.</p>
+          <p class="basis">Dasar: studi Harvard (&minus;80% di perusahaan pengadopsi AI) &middot; lowongan tech junior global &minus;67% &middot; TPT lulusan tinggi RI 6,13%</p>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="yr">2027&ndash;2028<small>Keyakinan menengah</small></div>
+        <div>
+          <h4>Bauran energi terbarukan menembus 20%</h4>
+          <p>Dari 17,89% pada April 2026, tren saat ini melampaui target. Proyek surya skala utilitas mulai groundbreaking, membuka permintaan EPC, operasi &amp; pemeliharaan, dan insinyur jaringan.</p>
+          <p class="basis">Dasar: bauran aktual 17,89% vs target 16,46% &middot; pipeline RUPTL 42,6 GW EBT. Kaveat: eksekusi target energi RI historis meleset.</p>
+          <h4 style="margin-top:16px">Keamanan siber jadi kewajiban regulasi, bukan pilihan</h4>
+          <p>Penegakan UU Perlindungan Data Pribadi mendorong permintaan analis SOC melewati kemampuan suplai pasar. Ini titik gaji terbaik untuk masuk.</p>
+          <p class="basis">Dasar: CAGR pasar 20,12% &middot; managed services tumbuh tercepat justru karena kelangkaan talenta</p>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="yr">2028&ndash;2029<small>Keyakinan menengah</small></div>
+        <div>
+          <h4>Taruhan baterai diuji secara kimia</h4>
+          <p>Apakah ekosistem nikel Indonesia berhasil naik dari bahan antara ke sel dan pak baterai &mdash; atau tersandera pergeseran global ke LFP. Ini variabel tunggal terbesar dalam strategi industri nasional.</p>
+          <p class="basis">Dasar: IEA &mdash; LFP &gt;55% pemasangan baterai EV global 2025 (naik dari ~50% pada 2024) &middot; ~75% kapasitas pemurnian RI dikendalikan pemodal asing (data kepemilikan 2023)</p>
+          <h4 style="margin-top:16px">Nasib kelas menengah menentukan semua sektor konsumen</h4>
+          <p>Kalau tren 57,33 juta (2019) ke 47,85 juta (2024) berlanjut, setiap proyeksi e-commerce, pariwisata, dan konsumen di laporan ini kelewat optimistis. Ini asumsi tersembunyi di balik hampir semua angka pasar konsumen.</p>
+          <p class="basis">Dasar: data kelas menengah BPS &middot; informalitas naik ke 51,5% &middot; konsumsi rumah tangga tumbuh di bawah 5%</p>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="yr">2029&ndash;2031<small>Keyakinan rendah &mdash; skenario</small></div>
+        <div>
+          <h4>Persaingan kerja mencapai intensitas tertinggi</h4>
+          <p>Penduduk usia produktif menuju sekitar <strong>196&ndash;199 juta pada 2030</strong>, sekitar 68% dari populasi. Lebih banyak orang mengejar jumlah posisi formal yang tidak tumbuh secepat itu.</p>
+          <p class="basis">Dasar: proyeksi BPS vintage SP2020 &middot; rasio ketergantungan 46,9 pada 2030. Catatan: angka 203 juta yang beredar luas berasal dari proyeksi SUPAS-2015 yang sudah digantikan. Klaim "puncak bonus demografi 2035" nggak ketemu sumber primernya, jadi gue nggak pakai.</p>
+          <h4 style="margin-top:16px">Ekonomi digital antara US$180 dan US$340 miliar</h4>
+          <p>Rentangnya terlalu lebar untuk disebut proyeksi. Yang bisa dipakai: e-commerce akan tetap sekitar tiga perempat dari total, dan pertumbuhan bergeser dari akuisisi pengguna ke monetisasi.</p>
+          <p class="basis">Dasar: e-Conomy SEA 2025, skenario dasar vs batas atas &middot; target ekraf 8,0&ndash;8,4% PDB pada 2029</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 07 ============================ -->
+<section class="sec">
+  <div class="rail"><span class="n">07</span></div>
+  <div class="body">
+    <h2>Tangga penghasilan, dan cara naikinnya</h2>
+    <p class="sec-lede">Bagian yang paling relevan sama pertanyaan lo: berapa yang realistis didapat, kapan, dan lewat jalur apa.</p>
+
+    <figure>
+      <figcaption>
+        <span class="ft">Rentang penghasilan bulanan menurut jalur, 2026</span>
+        <span class="fs">Dalam juta rupiah per bulan, <strong>skala logaritmik</strong> karena rentangnya membentang 20 kali lipat. Garis putus-putus merah adalah rata-rata upah buruh nasional versi BPS (Mei 2026) sebagai pembanding.</span>
+      </figcaption>
+      <div class="chart" id="c-income"></div>
+      <p class="foot">Angka lokal dari survei gaji pasar; angka spesialis global dari laporan tarif kontrak. Rentang, bukan janji.</p>
+    </figure>
+
+    <p>Dua hal yang langsung kelihatan dari grafik itu. Pertama, <strong>selisih antara fresh graduate tech dan non-tech itu sekitar dua kali lipat</strong> &mdash; Rp6&ndash;9 juta lawan Rp3&ndash;4 juta &mdash; dan itu selisih di titik masuk, sebelum kompetensi apa pun terbukti. Kedua, <strong>lompatan terbesar bukan dari lokal-junior ke lokal-senior, tapi dari lokal ke klien global</strong>. Spesialis cloud dan integrasi AI dengan kontrak internasional dilaporkan di kisaran Rp30&ndash;60 juta per bulan.</p>
+
+    <p>Di platform global, tarif pemula ada di <strong>US$5&ndash;10 per jam</strong>, naik ke <strong>US$20&ndash;50 per jam</strong> dengan konsistensi dan portofolio. Yang bikin ini menarik buat lo bukan cuma nominalnya, tapi <strong>arbitrase kurs</strong>: biaya hidup lo dalam rupiah, pendapatan lo dalam dolar.</p>
+
+    <div class="note risk">
+      <span class="h">Jangan salah baca angka ini</span>
+      <p>Rp30&ndash;60 juta itu <strong>ujung atas untuk keahlian langka setelah bertahun-tahun</strong>, bukan target tahun pertama. Sumbernya adalah laporan tarif platform, bukan survei berbasis sampel &mdash; jadi condong ke atas karena yang dilaporkan biasanya kasus sukses. Perlakukan sebagai plafon yang mungkin, bukan ekspektasi wajar.</p>
+    </div>
+
+    <h3>Rencana empat fase</h3>
+
+    <div class="pb">
+      <div class="pb-c">
+        <span class="ph">Fase 1 &middot; 0&ndash;90 hari</span>
+        <h4>Pilih satu jalur, hasilkan uang pertama</h4>
+        <ul>
+          <li>Pilih <strong>satu</strong> dari dua: infrastruktur cloud/data, atau keamanan siber. Jangan dua-duanya.</li>
+          <li>Bangun tiga artefak portofolio yang bisa diverifikasi orang lain &mdash; bukan sertifikat kursus, tapi sesuatu yang jalan.</li>
+          <li>Buka profil di platform global dan ambil pekerjaan kecil apa pun, sekalipun tarifnya jelek. Yang lo beli di fase ini adalah <em>rekam jejak</em>, bukan uang.</li>
+          <li>Paralel: lamar magang lokal di sektor yang sama.</li>
+        </ul>
+        <div class="tgt">Target: <b>US$200 pertama</b> &amp; 3 ulasan</div>
+      </div>
+      <div class="pb-c">
+        <span class="ph">Fase 2 &middot; 3&ndash;12 bulan</span>
+        <h4>Sertifikasi + pengalaman nyata pertama</h4>
+        <ul>
+          <li>Ambil satu sertifikasi yang diakui pasar di jalur yang lo pilih. Ini gerbang HR, bukan bukti kompetensi &mdash; tapi gerbangnya nyata.</li>
+          <li>Naikkan tarif global ke <strong>US$10&ndash;15/jam</strong> begitu ada 5&ndash;10 ulasan.</li>
+          <li>Kalau dapat kerja lokal, ambil &mdash; walau gajinya kalah dari freelance. Jaringan dan proses internal nggak bisa dibeli.</li>
+        </ul>
+        <div class="tgt">Target: <b>Rp6&ndash;9 juta/bln</b> gabungan</div>
+      </div>
+      <div class="pb-c">
+        <span class="ph">Fase 3 &middot; Tahun 2&ndash;3</span>
+        <h4>Spesialisasi, keluar dari zona komoditas</h4>
+        <ul>
+          <li>Pindah dari kerja umum ke satu spesialisasi sempit &mdash; ini yang memisahkan lo dari kompetisi tarif global.</li>
+          <li>Di keamanan siber: naik dari SOC tier 1 ke threat hunting atau arsitektur. Tier 1 adalah kerja terkodifikasi dan akan tergerus AI.</li>
+          <li>Di infrastruktur: dari operasi ke desain dan otomasi.</li>
+          <li>Jalankan dua sumber penghasilan secara sadar: satu lokal, satu global.</li>
+        </ul>
+        <div class="tgt">Target: <b>Rp8&ndash;15 juta</b> atau <b>US$20&ndash;30/jam</b></div>
+      </div>
+      <div class="pb-c">
+        <span class="ph">Fase 4 &middot; Tahun 3&ndash;5</span>
+        <h4>Keahlian langka atau kepemilikan</h4>
+        <ul>
+          <li>Dua jalan keluar: jadi spesialis yang langka (arsitektur cloud, keamanan OT, integrasi AI), atau berpindah ke kepemilikan &mdash; produk, IP, atau agensi kecil.</li>
+          <li>Kalau ambil jalur IP: ingat insentif pemerintah untuk film, gim, dan aplikasi.</li>
+          <li>Di titik ini kredensial formal berhenti jadi faktor. Rekam jejak yang bicara.</li>
+        </ul>
+        <div class="tgt">Target: <b>Rp30 juta+</b> plafon realistis</div>
+      </div>
+    </div>
+
+    <h3>Yang gue saranin lo hindari sebagai rencana utama</h3>
+    <ul>
+      <li><strong>Jasa kreatif generik</strong> &mdash; penulisan konten, desain grafis dasar, terjemahan sederhana. Ini kategori dengan paparan AI generatif tertinggi, dan tarifnya sudah tertekan sekarang, bukan nanti. Sebagai penghasilan jembatan 90 hari: boleh. Sebagai rencana lima tahun: jangan.</li>
+      <li><strong>"Gabung startup, ambil ekuitas"</strong> sebagai rencana tunggal. Dengan pendanaan turun 49% pada 2025 (versi DailySocial) dan 70% lagi di semester I 2026 (versi Tracxn), probabilitas ekuitas lo bernilai sesuatu sudah turun drastis. Kerja di startup boleh &mdash; tapi hitung kompensasinya dari gaji tunai, bukan dari saham.</li>
+      <li><strong>Menunggu sampai lulus untuk mulai.</strong> Data Harvard itu spesifik: perusahaan berhenti merekrut pemula karena <em>ekspektasi</em>, bukan karena kapasitas sudah tergantikan. Artinya rekam jejak yang lo bangun <em>sebelum</em> lulus adalah pembeda terbesar yang lo punya, dan itu tidak bisa dikejar setelahnya.</li>
+    </ul>
+  </div>
+</section>
+
+<script>
+(function(){
+"use strict";
+var NS="http://www.w3.org/2000/svg";
+function el(n,a){var e=document.createElementNS(NS,n);for(var k in a){if(a[k]!==null&&a[k]!==undefined)e.setAttribute(k,a[k]);}return e;}
+function svg(w,h){var s=el("svg",{viewBox:"0 0 "+w+" "+h,role:"img"});return s;}
+function txt(x,y,s,cls,anchor){var t=el("text",{x:x,y:y,class:cls,"text-anchor":anchor||"start"});t.textContent=s;return t;}
+function fmt(v,d){return v.toFixed(d===undefined?1:d).replace(".",",");}
+
+/* bar path: square at baseline, 4px rounded at the data end */
+function hbarPath(x0,y,w,h,r){
+  r=Math.min(r,w,h/2); if(w<=0.5) return "M"+x0+","+y+"h0.5v"+h+"h-0.5Z";
+  var x1=x0+w;
+  return "M"+x0+","+y+"H"+(x1-r)+"A"+r+","+r+" 0 0 1 "+x1+","+(y+r)+"V"+(y+h-r)+"A"+r+","+r+" 0 0 1 "+(x1-r)+","+(y+h)+"H"+x0+"Z";
+}
+function vbarPath(x,yTop,w,h,r){
+  r=Math.min(r,w/2,h); if(h<=0.5) return "M"+x+","+(yTop+h)+"h"+w+"v-0.5h-"+w+"Z";
+  var yB=yTop+h;
+  return "M"+x+","+yB+"V"+(yTop+r)+"A"+r+","+r+" 0 0 1 "+(x+r)+","+yTop+"H"+(x+w-r)+"A"+r+","+r+" 0 0 1 "+(x+w)+","+(yTop+r)+"V"+yB+"Z";
+}
+
+/* ---------- tooltip ---------- */
+var tip=document.getElementById("tip");
+function bindTip(node,html){
+  node.addEventListener("mouseenter",function(){tip.innerHTML=html;tip.style.opacity="1";});
+  node.addEventListener("mousemove",function(e){
+    var w=tip.offsetWidth,h=tip.offsetHeight;
+    var x=e.clientX+14, y=e.clientY-h-12;
+    if(x+w>window.innerWidth-10) x=e.clientX-w-14;
+    if(y<10) y=e.clientY+18;
+    tip.style.left=x+"px";tip.style.top=y+"px";
+  });
+  node.addEventListener("mouseleave",function(){tip.style.opacity="0";});
+  node.setAttribute("tabindex","0");
+  node.addEventListener("focus",function(){
+    tip.innerHTML=html;tip.style.opacity="1";
+    var r=node.getBoundingClientRect();
+    tip.style.left=Math.max(10,r.left)+"px";tip.style.top=Math.max(10,r.top-tip.offsetHeight-10)+"px";
+  });
+  node.addEventListener("blur",function(){tip.style.opacity="0";});
+}
+
+/* ---------- legend + data table helpers ---------- */
+function legend(id,items){
+  var box=document.getElementById(id); if(!box) return;
+  items.forEach(function(it){
+    var d=document.createElement("div");d.className="li";
+    var sw=document.createElement("span");sw.className="sw";
+    sw.style.background=it.c; if(it.outline){sw.style.background="transparent";sw.style.border="1.5px dashed "+it.c;}
+    d.appendChild(sw);
+    var s=document.createElement("span");s.textContent=it.t;d.appendChild(s);
+    box.appendChild(d);
+  });
+}
+function dataTable(host,cols,rows,label){
+  var det=document.createElement("details");det.className="tbl";
+  var sum=document.createElement("summary");sum.textContent=label||"Lihat data sebagai tabel";det.appendChild(sum);
+  var tw=document.createElement("div");tw.className="tw";
+  var t=document.createElement("table");
+  var th=document.createElement("thead");var tr=document.createElement("tr");
+  cols.forEach(function(c){var e=document.createElement("th");e.textContent=c;tr.appendChild(e);});
+  th.appendChild(tr);t.appendChild(th);
+  var tb=document.createElement("tbody");
+  rows.forEach(function(r){
+    var x=document.createElement("tr");
+    r.forEach(function(c,i){var e=document.createElement("td");if(i>0)e.className="n";e.textContent=c;x.appendChild(e);});
+    tb.appendChild(x);
+  });
+  t.appendChild(tb);tw.appendChild(t);det.appendChild(tw);
+  var fig=host.closest("figure")||host.parentNode; fig.appendChild(det);
+}
+window.__chartHelpers={el:el,svg:svg,txt:txt,fmt:fmt,hbarPath:hbarPath,vbarPath:vbarPath,bindTip:bindTip,legend:legend,dataTable:dataTable};
+})();
+</script>
+
+<script>
+(function(){
+"use strict";
+var H=window.__chartHelpers, el=H.el, svg=H.svg, txt=H.txt, fmt=H.fmt;
+var bindTip=H.bindTip, legend=H.legend, dataTable=H.dataTable;
+var C1="var(--c1)",C2="var(--c2)",C3="var(--c3)",C4="var(--c4)",MUT="var(--ink-3)";
+
+/* ============ 1. CAGR horizontal bars ============ */
+(function(){
+  var host=document.getElementById("c-cagr"); if(!host) return;
+  var D=[
+   {l:"Keamanan siber",v:20.1,t:"US$1,62 miliar (2026) ke US$4,06 miliar (2031). Sumber: Mordor Intelligence, edisi 2026-2031."},
+   {l:"Pasar halal Indonesia",v:14.2,t:"US$318,9 miliar (2024) ke US$922,6 miliar (2032). Sumber: Data Bridge, vendor komersial."},
+   {l:"Pusat data (kolokasi)",v:13.7,t:"US$1,83 miliar (2026) ke US$3,48 miliar (2031). Sumber: Mordor Intelligence."},
+   {l:"Ekonomi digital (GMV)",v:12.5,t:"US$100 miliar (2025) ke US$180 miliar (2030), ujung bawah rentang. Ujung atas rentang (US$340 miliar) setara CAGR 27,7%."},
+   {l:"Asuransi kesehatan",v:9.4,t:"US$16,8 miliar (2023) ke US$30,2 miliar (2030). Estimasi vendor, termasuk yang paling optimistis di pasarnya."},
+   {l:"Rumah sakit",v:7.6,t:"Menuju US$55,1 miliar (2030). Sumber: Insights10, vendor komersial."},
+   {l:"Informasi & komunikasi",v:7.0,t:"Pertumbuhan AKTUAL kuartal II-2026, bukan proyeksi. Sumber: BPS, 5 Agustus 2026.",a:1},
+   {l:"PDB nasional",v:5.3,t:"Pertumbuhan AKTUAL kuartal II-2026: 5,29% yoy. Sumber: BPS, 5 Agustus 2026.",a:1}
+  ];
+  var W=790,PL=215,PR=758,TOP=36,STEP=34,BH=20,MAX=22;
+  var Hh=TOP+D.length*STEP+16, sc=(PR-PL)/MAX;
+  var s=svg(W,Hh); s.setAttribute("aria-label","Pertumbuhan tahunan per sektor");
+  [0,5,10,15,20].forEach(function(g){
+    var x=PL+g*sc;
+    s.appendChild(el("line",{x1:x,y1:TOP-12,x2:x,y2:TOP+D.length*STEP-8,class:"grid-l"}));
+    s.appendChild(txt(x,TOP-20,g+"%","axis-t","middle"));
+  });
+  D.forEach(function(d,i){
+    var y=TOP+i*STEP, w=d.v*sc;
+    var op=d.a?0.5:(1-i*0.085);
+    var pth=el("path",{d:H.hbarPath(PL,y,w,BH,4),fill:d.a?MUT:C1,"fill-opacity":op});
+    s.appendChild(pth);
+    s.appendChild(txt(PL-12,y+14,d.l,"cat-t","end"));
+    s.appendChild(txt(PL+w+9,y+14,fmt(d.v)+"%","val-t","start"));
+    var hit=el("rect",{x:0,y:y-6,width:W,height:BH+12,class:"hit"});
+    bindTip(hit,"<b>"+d.l+"</b><br><span class='v'>"+fmt(d.v)+"% per tahun</span><br>"+d.t);
+    s.appendChild(hit);
+  });
+  host.appendChild(s);
+  legend("l-cagr",[{c:"var(--c1)",t:"Proyeksi pasar (estimasi vendor riset)"},{c:"var(--ink-3)",t:"Pertumbuhan aktual kuartal II-2026 (BPS)"}]);
+  dataTable(host,["Sektor","CAGR / pertumbuhan"],D.map(function(d){return [d.l+(d.a?" (aktual)":""),fmt(d.v)+"%"];}));
+})();
+
+/* ============ 2. Startup funding, two trackers ============ */
+(function(){
+  var host=document.getElementById("c-fund"); if(!host) return;
+  var G=[
+    {name:"DailySocial / DiscoveryShift",sub:"setahun penuh",c:C2,bars:[
+      {l:"2024",v:694.6,t:"US$694,6 juta setahun penuh."},
+      {l:"2025",v:355.7,t:"US$355,7 juta lewat 91 kesepakatan. Turun 49% dari 2024."}]},
+    {name:"Tracxn",sub:"putaran ekuitas, semester I",c:C3,bars:[
+      {l:"S1 2025",v:170,t:"US$170 juta dari 26 putaran ekuitas."},
+      {l:"S1 2026",v:50.7,t:"US$50,7 juta dari 11 putaran ekuitas. Turun 70,13%."}]}
+  ];
+  var W=790,TOP=44,BOT=272,MAX=750,BW=96;
+  var s=svg(W,352); s.setAttribute("aria-label","Pendanaan startup menurut dua pelacak");
+  [0,250,500,750].forEach(function(g){
+    var y=BOT-(g/MAX)*(BOT-TOP);
+    s.appendChild(el("line",{x1:70,y1:y,x2:W-16,y2:y,class:g===0?"base-l":"grid-l"}));
+    s.appendChild(txt(60,y+4,g===0?"0":g,"axis-t","end"));
+  });
+  var gx=[100,470];
+  G.forEach(function(g,gi){
+    g.bars.forEach(function(b,bi){
+      var x=gx[gi]+bi*(BW+34), h=(b.v/MAX)*(BOT-TOP), y=BOT-h;
+      s.appendChild(el("path",{d:H.vbarPath(x,y,BW,h,4),fill:g.c}));
+      s.appendChild(txt(x+BW/2,y-10,fmt(b.v),"val-t","middle"));
+      s.appendChild(txt(x+BW/2,BOT+20,b.l,"axis-t","middle"));
+      var hit=el("rect",{x:x-8,y:TOP-10,width:BW+16,height:BOT-TOP+34,class:"hit"});
+      bindTip(hit,"<b>"+g.name+"</b><br>"+b.l+": <span class='v'>US$"+fmt(b.v)+" juta</span><br>"+b.t);
+      s.appendChild(hit);
+    });
+    var cx=gx[gi]+BW+17;
+    s.appendChild(txt(cx,BOT+46,g.name,"cat-t","middle"));
+    s.appendChild(txt(cx,BOT+64,"("+g.sub+")","axis-t","middle"));
+  });
+  s.appendChild(txt(70,26,"Juta US$","axis-t","start"));
+  host.appendChild(s);
+  legend("l-fund",[{c:"var(--c2)",t:"DailySocial / DiscoveryShift"},{c:"var(--c3)",t:"Tracxn"}]);
+  dataTable(host,["Pelacak","Periode","Juta US$"],[
+    ["DailySocial","2024","694,6"],["DailySocial","2025","355,7"],
+    ["Tracxn","Semester I 2025","170,0"],["Tracxn","Semester I 2026","50,7"]]);
+})();
+})();
+</script>
+
+<script>
+(function(){
+"use strict";
+var H=window.__chartHelpers, el=H.el, svg=H.svg, txt=H.txt, fmt=H.fmt;
+var bindTip=H.bindTip, legend=H.legend, dataTable=H.dataTable;
+
+/* ============ 3. GMV composition, stacked ============ */
+(function(){
+  var host=document.getElementById("c-gmv-mix"); if(!host) return;
+  var SEG=[{k:"E-commerce",c:"var(--c1)"},{k:"Transport & makanan",c:"var(--c2)"},
+           {k:"Perjalanan online",c:"var(--c3)"},{k:"Media online",c:"var(--c4)"}];
+  var R=[{l:"2025",sub:"aktual",v:[71,9,10,9]},{l:"2030",sub:"proyeksi",v:[140,17,16,15]}];
+  var W=790,PL=96,PR=700,MAX=190,BH=44,TOP=34,STEP=76;
+  var sc=(PR-PL)/MAX, s=svg(W,TOP+R.length*STEP+14);
+  s.setAttribute("aria-label","Komposisi GMV ekonomi digital");
+  R.forEach(function(r,ri){
+    var y=TOP+ri*STEP, x=PL, tot=0;
+    r.v.forEach(function(v){tot+=v;});
+    r.v.forEach(function(v,si){
+      var w=v*sc, last=(si===r.v.length-1);
+      var d=last?H.hbarPath(x,y,w,BH,4):("M"+x+","+y+"h"+w+"v"+BH+"h-"+w+"Z");
+      var pth=el("path",{d:d,fill:SEG[si].c});
+      bindTip(pth,"<b>"+SEG[si].k+" &middot; "+r.l+"</b><br><span class='v'>US$"+v+" miliar</span><br>"+
+        Math.round(v/tot*100)+"% dari total tahun itu");
+      s.appendChild(pth);
+      if(w>44) s.appendChild(txt(x+w/2,y+BH/2+5,String(v),"val-t","middle"));
+      x+=w+2;
+    });
+    s.appendChild(txt(PL-14,y+22,r.l,"cat-t","end"));
+    s.appendChild(txt(PL-14,y+38,r.sub,"axis-t","end"));
+    s.appendChild(txt(x+10,y+BH/2+5,"= "+tot,"val-t","start"));
+  });
+  host.appendChild(s);
+  legend("l-gmv-mix",SEG.map(function(g){return {c:g.c,t:g.k};}));
+  dataTable(host,["Sektor","2025 (mrd US$)","2030 (mrd US$)"],
+    SEG.map(function(g,i){return [g.k,String(R[0].v[i]),String(R[1].v[i])];})
+      .concat([["Total","99","188"]]));
+})();
+
+/* ============ 4. GMV range 2030 ============ */
+(function(){
+  var host=document.getElementById("c-gmv"); if(!host) return;
+  var W=790,PL=96,PR=740,MAX=350,BH=34,sc=(PR-PL)/MAX;
+  var s=svg(W,150); s.setAttribute("aria-label","Rentang proyeksi GMV 2030");
+  [0,100,200,300].forEach(function(g){
+    var x=PL+g*sc;
+    s.appendChild(el("line",{x1:x,y1:26,x2:x,y2:120,class:"grid-l"}));
+    s.appendChild(txt(x,18,g,"axis-t","middle"));
+  });
+  s.appendChild(txt(PL,150-4,"Miliar US$ (GMV)","axis-t","start"));
+  // 2025 actual
+  var w1=100*sc;
+  var b1=el("path",{d:H.hbarPath(PL,34,w1,BH,4),fill:"var(--c1)"});
+  bindTip(b1,"<b>2025 &middot; aktual</b><br><span class='v'>~US$100 miliar</span><br>Tumbuh 14% yoy, terbesar di Asia Tenggara.");
+  s.appendChild(b1);
+  s.appendChild(txt(PL-14,34+22,"2025","cat-t","end"));
+  s.appendChild(txt(PL+w1+10,34+22,"~100","val-t","start"));
+  // 2030 range
+  var xa=PL+180*sc, xb=PL+340*sc, y2=82;
+  var b2=el("path",{d:H.hbarPath(PL,y2,180*sc,BH,0),fill:"var(--c1)","fill-opacity":.42});
+  s.appendChild(b2);
+  var band=el("rect",{x:xa,y:y2,width:xb-xa,height:BH,fill:"var(--c1)","fill-opacity":.14,
+    stroke:"var(--c1)","stroke-width":1.5,"stroke-dasharray":"5 4",rx:3});
+  s.appendChild(band);
+  s.appendChild(txt(PL-14,y2+22,"2030","cat-t","end"));
+  s.appendChild(txt(xb+10,y2+22,"180 - 340","val-t","start"));
+  var hit=el("rect",{x:PL,y:y2-8,width:PR-PL,height:BH+16,class:"hit"});
+  bindTip(hit,"<b>2030 &middot; proyeksi</b><br><span class='v'>US$180-340 miliar</span><br>e-Conomy SEA 2025 menyatakan ini sebagai RENTANG, bukan satu angka dasar dengan batas atas. Lebarnya rentang itu sendiri adalah informasi: tidak ada konsensus.");
+  s.appendChild(hit);
+  host.appendChild(s);
+})();
+})();
+</script>
+
+<script>
+(function(){
+"use strict";
+var H=window.__chartHelpers, el=H.el, svg=H.svg, txt=H.txt, fmt=H.fmt;
+var bindTip=H.bindTip, legend=H.legend, dataTable=H.dataTable;
+
+/* ============ 5. Opportunity matrix ============ */
+(function(){
+  var host=document.getElementById("c-matrix"); if(!host) return;
+  var GR=[{t:"Teknis dalam, tahan AI",c:"var(--c1)"},
+          {t:"Cepat masuk, margin menipis",c:"var(--c2)"},
+          {t:"Produk fisik & lokasi",c:"var(--c3)"},
+          {t:"Gerbang lisensi",c:"var(--c4)"}];
+  var P=[
+   {n:"Infrastruktur AI & pusat data",x:4.0,y:5.0,r:5,g:0,la:"end",ld:[-25,4]},
+   {n:"Keamanan siber",x:4.3,y:4.7,r:4,g:0,la:"start",ld:[22,4]},
+   {n:"Energi terbarukan",x:2.2,y:4.2,r:5,g:0,la:"middle",ld:[0,-27]},
+   {n:"Kesehatan",x:1.4,y:4.0,r:5,g:3,la:"middle",ld:[0,-27]},
+   {n:"Halal & konsumen",x:3.8,y:4.0,r:4,g:2,la:"start",ld:[22,4]},
+   {n:"Hilirisasi nikel & baterai",x:2.0,y:3.8,r:4,g:2,la:"start",ld:[22,4]},
+   {n:"Ekonomi kreatif & IP",x:5.0,y:3.2,r:2,g:1,la:"end",ld:[52,-18]},
+   {n:"Manufaktur China+1",x:2.8,y:3.0,r:4,g:2,la:"middle",ld:[0,32]},
+   {n:"Ekonomi digital / e-commerce",x:4.8,y:2.95,r:2,g:1,la:"end",ld:[90,30]},
+   {n:"Pariwisata",x:3.9,y:2.75,r:4,g:1,la:"middle",ld:[0,33]}
+  ];
+  var W=790,PL=86,PR=744,PT=44,PB=404;
+  var x0=1,x1=5.4,y0=2.4,y1=5.4;
+  function X(v){return PL+(v-x0)/(x1-x0)*(PR-PL);}
+  function Y(v){return PB-(v-y0)/(y1-y0)*(PB-PT);}
+  var s=svg(W,478); s.setAttribute("aria-label","Matriks peluang sektor");
+  // grid
+  [3,4,5].forEach(function(g){s.appendChild(el("line",{x1:PL,y1:Y(g),x2:PR,y2:Y(g),class:"grid-l"}));
+    s.appendChild(txt(PL-12,Y(g)+4,String(g),"axis-t","end"));});
+  [2,3,4,5].forEach(function(g){s.appendChild(el("line",{x1:X(g),y1:PT,x2:X(g),y2:PB,class:"grid-l"}));
+    s.appendChild(txt(X(g),PB+20,String(g),"axis-t","middle"));});
+  // quadrant split
+  s.appendChild(el("line",{x1:X(3.5),y1:PT,x2:X(3.5),y2:PB,class:"base-l","stroke-dasharray":"4 4"}));
+  s.appendChild(el("line",{x1:PL,y1:Y(3.9),x2:PR,y2:Y(3.9),class:"base-l","stroke-dasharray":"4 4"}));
+  var qa=txt(PR,PT-6,"PERTUMBUHAN TINGGI + AKSES TERBUKA","axis-t","end"); qa.setAttribute("fill","var(--accent)");
+  s.appendChild(qa);
+  s.appendChild(txt(PL+6,PT-6,"gerbang gelar / lisensi / relokasi","axis-t","start"));
+  // axes
+  s.appendChild(txt(PL,PB+48,"Akses buat mahasiswa tanpa modal (1 = tertutup, 5 = terbuka)","axis-t","start"));
+  var yl=txt(0,0,"Pertumbuhan pasar (skor dari CAGR)","axis-t","middle");
+  yl.setAttribute("transform","translate(26,"+((PT+PB)/2)+") rotate(-90)"); s.appendChild(yl);
+  // points
+  P.forEach(function(p){
+    var cx=X(p.x),cy=Y(p.y),rr=6+p.r*2.2;
+    var c=el("circle",{cx:cx,cy:cy,r:rr,fill:GR[p.g].c,"fill-opacity":.82,
+      stroke:"var(--paper)","stroke-width":2});
+    bindTip(c,"<b>"+p.n+"</b><br>Pertumbuhan <span class='v'>"+fmt(p.y)+"</span> &middot; Akses <span class='v'>"+fmt(p.x)+
+      "</span><br>Ketahanan AI <span class='v'>"+p.r+"/5</span><br>"+GR[p.g].t);
+    s.appendChild(c);
+    var t=txt(cx+p.ld[0],cy+p.ld[1],p.n,"cat-t",p.la);
+    t.setAttribute("font-size","12"); s.appendChild(t);
+  });
+  host.appendChild(s);
+  legend("l-matrix",GR.map(function(g){return {c:g.c,t:g.t};}));
+})();
+
+/* ============ 6. Income ranges (log scale) ============ */
+(function(){
+  var host=document.getElementById("c-income"); if(!host) return;
+  var D=[
+   {l:"Fresh grad non-tech, kota kecil",a:3.0,b:4.0},
+   {l:"Data analyst entry-level",a:5.0,b:9.0},
+   {l:"Fresh grad tech (nasional)",a:6.0,b:9.0},
+   {l:"Fresh grad tech (Jakarta)",a:8.0,b:15.0},
+   {l:"Spesialis cloud/AI, klien global",a:30.0,b:60.0}
+  ];
+  var W=790,PL=278,PR=744,TOP=66,STEP=44,REF=3.39;
+  var lo=Math.log10(2.5),hi=Math.log10(72);
+  function X(v){return PL+(Math.log10(v)-lo)/(hi-lo)*(PR-PL);}
+  var Hh=TOP+D.length*STEP+34, s=svg(W,Hh);
+  s.setAttribute("aria-label","Rentang penghasilan bulanan per jalur");
+  [3,5,10,20,40,60].forEach(function(g){
+    s.appendChild(el("line",{x1:X(g),y1:TOP-16,x2:X(g),y2:TOP+D.length*STEP-16,class:"grid-l"}));
+    s.appendChild(txt(X(g),TOP-24,String(g),"axis-t","middle"));
+  });
+  // reference line
+  var rx=X(REF);
+  s.appendChild(el("line",{x1:rx,y1:TOP-16,x2:rx,y2:TOP+D.length*STEP-6,stroke:"var(--risk)",
+    "stroke-width":1.5,"stroke-dasharray":"4 3"}));
+  var rl=txt(rx,TOP+D.length*STEP+10,"Rp3,39 jt - rata-rata upah buruh nasional","axis-t","middle");
+  rl.setAttribute("fill","var(--risk)"); s.appendChild(rl);
+  D.forEach(function(d,i){
+    var y=TOP+i*STEP, xa=X(d.a), xb=X(d.b);
+    s.appendChild(el("line",{x1:xa,y1:y,x2:xb,y2:y,stroke:"var(--c1)","stroke-width":3,"stroke-linecap":"round"}));
+    [[xa,d.a],[xb,d.b]].forEach(function(pt,k){
+      s.appendChild(el("circle",{cx:pt[0],cy:y,r:5.5,fill:k?"var(--c1)":"var(--paper)",
+        stroke:"var(--c1)","stroke-width":2.5}));
+    });
+    s.appendChild(txt(PL-16,y+5,d.l,"cat-t","end"));
+    s.appendChild(txt(xb+14,y+5,fmt(d.a,0)+"-"+fmt(d.b,0),"val-t","start"));
+    var hit=el("rect",{x:0,y:y-16,width:W,height:32,class:"hit"});
+    bindTip(hit,"<b>"+d.l+"</b><br><span class='v'>Rp"+fmt(d.a,0)+" - "+fmt(d.b,0)+
+      " juta / bulan</span><br>"+(d.b/REF).toFixed(1).replace(".",",")+"x rata-rata upah nasional di ujung atas");
+    s.appendChild(hit);
+  });
+  s.appendChild(txt(0,18,"Juta rupiah per bulan  \u00b7  SKALA LOGARITMIK","axis-t","start"));
+  host.appendChild(s);
+  dataTable(host,["Jalur","Bawah (Rp juta)","Atas (Rp juta)"],
+    D.map(function(d){return [d.l,fmt(d.a,0),fmt(d.b,0)];}));
+})();
+})();
+</script>
+
+<!-- ============================ 08 ============================ -->
+<section class="sec">
+  <div class="rail"><span class="n">08</span></div>
+  <div class="body">
+    <h2>Sumber, dan di mana sumbernya saling bertentangan</h2>
+    <p class="sec-lede">Bagian ini yang bikin laporan ini beda dari artikel "10 industri paling menjanjikan". Setiap angka di atas gue lacak ke sumbernya, dan yang nggak lolos gue buang &mdash; termasuk beberapa yang sempat masuk draf.</p>
+
+    <h3>Angka yang gue buang setelah diperiksa</h3>
+
+    <div class="note risk">
+      <span class="h">Tujuh klaim yang nggak lolos verifikasi</span>
+      <p><strong>1. "Rekrutmen entry-level turun 80% per kuartal."</strong> Berasal dari judul Forbes, bukan dari paper Harvard yang dirujuknya. Temuan sebenarnya ~7,7%. Selain itu 80% per kuartal mustahil secara aritmetika.</p>
+      <p><strong>2. "Produksi nikel olahan naik dari 390 ribu ton (2019) ke 1.629 ribu ton (2024)."</strong> Nggak ketemu di USGS, INSG, maupun sumber pemerintah. Seri pembanding memberi angka yang jauh berbeda.</p>
+      <p><strong>3. "Informalitas naik 49,5% ke 51,5%; setengah penganggur 28,8% ke 31,0%."</strong> Bertentangan dengan BPS, yang menempatkan informalitas sekitar sepuluh poin lebih tinggi dan setengah penganggur di kisaran satu digit. Arah trennya benar, levelnya salah.</p>
+      <p><strong>4. "Pendanaan startup US$3,24 miliar pada 2022" dan "putaran turun dari 385 ke 69."</strong> Keduanya nggak terverifikasi; DailySocial sendiri menyebut 91 kesepakatan pada 2025.</p>
+      <p><strong>5. "AI menambah US$366 miliar ke PDB Indonesia pada 2030."</strong> Ini estimasi Kearney/EDBI dari <strong>Oktober 2020</strong> &mdash; sebelum AI generatif ada. Masih beredar luas, termasuk dikutip pejabat, tapi vintage-nya bikin nggak layak dipakai di dokumen 2026. (Sering juga salah dikreditkan ke McKinsey.)</p>
+      <p><strong>6. "Puncak bonus demografi pada 2035."</strong> Nggak ketemu sumber primernya. Klaim yang beredar berkisar dari 2020 sampai 2050.</p>
+      <p><strong>7. "19 juta penderita hipertensi, 10 juta diabetes."</strong> Bertentangan dengan Kemenkes/SKI 2023, yang menempatkan prevalensi hipertensi di 30,8% orang dewasa dan diabetes di atas 20 juta. Angka yang beredar kemungkinan cuma menghitung kasus terdiagnosis.</p>
+    </div>
+
+    <h3>Delapan belas titik di mana sumber saling bertentangan</h3>
+
+    <div class="tw">
+      <table>
+        <thead>
+          <tr><th>Topik</th><th>Versi A</th><th>Versi B</th><th>Penyebab &amp; putusan gue</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="name">Proyeksi PDB 2026 Bank Dunia</td><td>4,7%</td><td>5,0%</td><td>Versi April 2026 digantikan revisi Juni 2026. <strong>Pakai 5,0%.</strong></td></tr>
+          <tr><td class="name">Total penganggur</td><td>7,35 juta</td><td>7,22 juta</td><td>Beda periode referensi: Nov 2025 vs Mei 2026. <strong>Pakai 7,22 juta</strong> agar konsisten dengan angka sarjana.</td></tr>
+          <tr><td class="name">Rata-rata upah buruh</td><td>Rp3,29 juta</td><td>Rp3,39 juta</td><td>Feb 2026 vs Mei 2026 (Sakernas kini kuartalan). <strong>Pakai Rp3,39 juta.</strong></td></tr>
+          <tr><td class="name">Studi Harvard AI</td><td>&minus;7,7%</td><td>&minus;80%</td><td>Paper vs judul media. <strong>Pakai &minus;7,7%.</strong></td></tr>
+          <tr><td class="name">Sampel studi Harvard</td><td>66 jt / 280rb</td><td>62&ndash;65 jt / 285rb</td><td>Beberapa varian beredar. <strong>Pakai "60+ juta pekerja, ~285 ribu perusahaan".</strong></td></tr>
+          <tr><td class="name">Pendanaan startup</td><td>DailySocial</td><td>Tracxn</td><td>Aturan inklusi beda. <strong>Tampilkan terpisah, jangan digabung.</strong></td></tr>
+          <tr><td class="name">Pasar pusat data</td><td>US$1,83 mrd</td><td>US$3,1 mrd</td><td>Mordor mengukur pendapatan kolokasi; IMARC mengukur seluruh infrastruktur. <strong>Bukan pertentangan.</strong></td></tr>
+          <tr><td class="name">Pasar keamanan siber</td><td>US$1,35 mrd (2025)</td><td>US$1,62 mrd (2026)</td><td>Dua edisi laporan berbeda dengan CAGR beda. <strong>Pakai satu edisi saja.</strong></td></tr>
+          <tr><td class="name">GMV digital 2030</td><td>~US$180 mrd</td><td>US$180&ndash;340 mrd</td><td>180 adalah ujung bawah rentang, bukan estimasi titik. <strong>Sebut sebagai rentang.</strong></td></tr>
+          <tr><td class="name">Surya di RUPTL</td><td>17,1 GW</td><td>13,4 GW</td><td>Set kedua berjumlah 32,9 GW, nggak nyambung dengan total 42,6 GW. <strong>Pakai 17,1 GW.</strong></td></tr>
+          <tr><td class="name">Target 100 GW surya</td><td>"satu dekade"</td><td>"2&ndash;3 tahun"</td><td>Dua target berbeda tercampur. Satu dekade untuk 100% listrik terbarukan. <strong>Pisahkan.</strong></td></tr>
+          <tr><td class="name">Ekspor ekraf 2025</td><td>US$26,68 mrd</td><td>US$31,94 mrd</td><td>Parsial Jan&ndash;Okt vs final setahun. <strong>Pakai angka final.</strong></td></tr>
+          <tr><td class="name">Ekspor halal 2024</td><td>US$41,4 mrd</td><td>US$53,7 / 64,1 mrd</td><td>Tiga definisi beda (ekspor parsial, perdagangan setahun, klaim pejabat). <strong>Sebutkan periode &amp; definisi.</strong></td></tr>
+          <tr><td class="name">Pasar kesehatan</td><td>US$11,6 mrd</td><td>US$55,1 mrd</td><td>Bukan pembanding sah: satu basis 2024 dengan cakupan sempit, satu proyeksi 2030 pasar RS. <strong>Jangan diadu.</strong></td></tr>
+          <tr><td class="name">Populasi lansia</td><td>19 jt (65+)</td><td>74 jt (60+)</td><td>Dua definisi umur dicampur sehingga terlihat naik 4x. <strong>Konsisten pakai 60+.</strong></td></tr>
+          <tr><td class="name">Microsoft Indonesia</td><td>US$2,5 mrd</td><td>US$1,7 mrd</td><td>Kontribusi ekonomi vs belanja modal. Lapangan kerja: 60rb (Kemenkomdigi) vs 106rb+ (IDC).</td></tr>
+          <tr><td class="name">Kebutuhan talenta digital</td><td>600 rb/tahun</td><td>453 rb/tahun</td><td>Turunan 9jt/15thn vs estimasi pemerintah. <strong>Sebut keduanya.</strong></td></tr>
+          <tr><td class="name">Proyeksi usia produktif 2030</td><td>203 juta</td><td>196&ndash;199 juta</td><td>Vintage SUPAS-2015 vs SP2020. <strong>Pakai SP2020.</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Sumber utama menurut tingkat kepercayaan</h3>
+
+    <div class="tw">
+      <table>
+        <thead><tr><th>Klaim</th><th>Sumber</th><th>Tanggal</th><th>Keyakinan</th></tr></thead>
+        <tbody>
+          <tr><td>PDB Q2-2026 5,29%; kontribusi sektoral</td><td class="src">BPS, rilis No. 2605</td><td class="src">5 Agu 2026</td><td><span class="conf hi">Tinggi</span></td></tr>
+          <tr><td>TPT 4,68% (Feb) / 4,65% (Mei); upah Rp3,39 jt</td><td class="src">BPS, rilis ketenagakerjaan</td><td class="src">Mei &amp; Agu 2026</td><td><span class="conf hi">Tinggi</span></td></tr>
+          <tr><td>TPT lulusan tinggi 6,13%; SMK 7,74%; SMA 6,23%</td><td class="src">BPS Sakernas</td><td class="src">Feb 2026</td><td><span class="conf hi">Tinggi</span></td></tr>
+          <tr><td>Kelas menengah 57,33 jt &rarr; 47,85 jt</td><td class="src">BPS (2025: olahan Mandiri Institute)</td><td class="src">2019&ndash;2025</td><td><span class="conf hi">Tinggi</span></td></tr>
+          <tr><td>Proyeksi PDB: IMF 5,0% &middot; Bank Dunia 5,0% &middot; ADB 5,2%</td><td class="src">IMF WEO Update; World Bank GEP; ADO</td><td class="src">Jun&ndash;Jul 2026</td><td><span class="conf hi">Tinggi</span></td></tr>
+          <tr><td>RUPTL 69,5 GW; 42,6 GW EBT; Rp2.967 triliun</td><td class="src">PLN / Kementerian ESDM</td><td class="src">Mei&ndash;Jun 2025</td><td><span class="conf hi">Tinggi</span></td></tr>
+          <tr><td>Bauran EBT 17,89%</td><td class="src">Ditjen Ketenagalistrikan ESDM</td><td class="src">Apr 2026</td><td><span class="conf hi">Tinggi</span></td></tr>
+          <tr><td>PDB ekraf Rp1.611,2 triliun (7,28%); ekspor US$31,94 mrd</td><td class="src">Kemenekraf / BPS</td><td class="src">2024; final Feb 2026</td><td><span class="conf hi">Tinggi</span></td></tr>
+          <tr><td>633 pabrik, Rp418,62 triliun, 219.684 pekerjaan</td><td class="src">Kemenperin via SIINas</td><td class="src">23 Apr 2026</td><td><span class="conf md">Sedang</span></td></tr>
+          <tr><td>FDI Tiongkok US$0,6 &rarr; 8,2 &rarr; 8,1 miliar</td><td class="src">BKPM / NSWI</td><td class="src">2015&ndash;2024</td><td><span class="conf hi">Tinggi</span></td></tr>
+          <tr><td>Target pariwisata 2026 (16&ndash;17,6 jt wisman)</td><td class="src">Kemenko Perekonomian / Kemenpar</td><td class="src">Jan 2026</td><td><span class="conf md">Sedang</span></td></tr>
+          <tr><td>GMV digital ~US$100 mrd (2025); rentang 2030</td><td class="src">Google / Temasek / Bain, e-Conomy SEA 2025</td><td class="src">11 Nov 2025</td><td><span class="conf hi">Tinggi</span></td></tr>
+          <tr><td>Studi AI &amp; kerja junior (&minus;7,7%)</td><td class="src">Hosseini Maasoum &amp; Lichtinger, Harvard (SSRN)</td><td class="src">Agu 2025</td><td><span class="conf md">Sedang</span></td></tr>
+          <tr><td>Semikonduktor US$1,29 T (2026) / US$1,75 T (2030)</td><td class="src">IDC</td><td class="src">2026</td><td><span class="conf md">Sedang</span></td></tr>
+          <tr><td>Edgnex US$2,3 miliar / 144 MW Jakarta</td><td class="src">EDGNEX / DAMAC Digital</td><td class="src">17 Jun 2025</td><td><span class="conf hi">Tinggi</span></td></tr>
+          <tr><td>Pendanaan startup 2024&ndash;2026</td><td class="src">DailySocial/DiscoveryShift; Tracxn</td><td class="src">2025&ndash;2026</td><td><span class="conf md">Sedang</span></td></tr>
+          <tr><td>Ekspor nikel olahan US$38,5 miliar (2025)</td><td class="src"><em>Mineral Economics</em> (Springer) &mdash; sumber tunggal</td><td class="src">2025</td><td><span class="conf lo">Rendah</span></td></tr>
+          <tr><td>Target hilirisasi US$618 mrd / 3 juta pekerjaan</td><td class="src">Kementerian &mdash; target aspiratif</td><td class="src">Jun 2026</td><td><span class="conf lo">Rendah</span></td></tr>
+          <tr><td>Pasar siber, pusat data, halal, RS, asuransi</td><td class="src">Mordor, IMARC, Data Bridge, Insights10 &mdash; vendor komersial</td><td class="src">2025&ndash;2026</td><td><span class="conf lo">Rendah</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note data">
+      <span class="h">Batas dari laporan ini</span>
+      <p><strong>Semua proyeksi pasar bertanda "Rendah" berasal dari vendor riset komersial yang metodologinya nggak dipublikasikan</strong>, dan estimasi mereka untuk pasar yang sama sering berbeda dua kali lipat atau lebih. Gue pakai karena nggak ada alternatif publik, tapi jangan jadikan dasar keputusan tunggal. Yang bisa dipegang dari angka-angka itu adalah <em>urutan relatifnya</em>, bukan nilai absolutnya.</p>
+      <p>Verifikasi dilakukan lewat penelusuran web, dan sebagian dokumen primer (PDF BPS, IMF, Bain, IDC) nggak bisa dibuka langsung karena pembatasan jaringan &mdash; jadi sebagian angka dikonfirmasi lewat judul rilis resmi dan pemberitaan sekunder, bukan dari pembacaan dokumen aslinya. Untuk keputusan besar, buka sendiri dokumen primernya.</p>
+      <p>Terakhir: laporan ini <strong>bukan nasihat keuangan atau karier profesional</strong>. Ini pemetaan data dengan asumsi yang gue buka semua supaya lo bisa nggak setuju di titik yang spesifik.</p>
+    </div>
+  </div>
+</section>
+
+<div class="closer">
+  <p><strong>Ringkasnya:</strong> Indonesia lima tahun ke depan membangun infrastruktur &mdash; listrik, pusat data, pengolahan mineral, pertahanan sistem. Di saat yang sama, anak tangga pertama karier di lapisan aplikasi sedang menipis. Dua hal itu terjadi bersamaan, dan keduanya menunjuk ke kesimpulan yang sama: <strong>bangun keahlian yang nempel ke sesuatu yang fisik atau kritis, buktikan lewat karya bukan ijazah, dan monetisasi lewat dua mata uang sekaligus.</strong></p>
+  <p class="foot" style="margin-top:22px">Laporan disusun 23 Agustus 2026 &middot; Data terakhir Agustus 2026 &middot; Semua angka dapat ditelusuri ke bagian 08</p>
+</div>
+
+</div>
