@@ -311,7 +311,7 @@ details.tbl table{min-width:380px}
       <div class="finding">
         <span class="k up">Rp30&ndash;60jt</span>
         <span class="lab">Spesialis cloud/AI, klien global</span>
-        <span class="d">Per bulan. Bandingkan rata-rata upah buruh nasional: Rp3,29 juta.</span>
+        <span class="d">Per bulan. Bandingkan rata-rata upah buruh nasional: Rp3,39 juta.</span>
       </div>
     </div>
 
@@ -928,7 +928,7 @@ var bindTip=H.bindTip, legend=H.legend, dataTable=H.dataTable;
     stroke:"var(--c1)","stroke-width":1.5,"stroke-dasharray":"5 4",rx:3});
   s.appendChild(band);
   s.appendChild(txt(PL-14,y2+22,"2030","cat-t","end"));
-  s.appendChild(txt(xb+10,y2+22,"180 - 340","val-t","start"));
+  s.appendChild(txt((xa+xb)/2,y2+22,"180 - 340","val-t","middle"));
   var hit=el("rect",{x:PL,y:y2-8,width:PR-PL,height:BH+16,class:"hit"});
   bindTip(hit,"<b>2030 &middot; proyeksi</b><br><span class='v'>US$180-340 miliar</span><br>e-Conomy SEA 2025 menyatakan ini sebagai RENTANG, bukan satu angka dasar dengan batas atas. Lebarnya rentang itu sendiri adalah informasi: tidak ada konsensus.");
   s.appendChild(hit);
@@ -1138,3 +1138,70 @@ var bindTip=H.bindTip, legend=H.legend, dataTable=H.dataTable;
 </div>
 
 </div>
+
+<style>
+/* ============================ PRINT / PDF ============================ */
+@page{ size:A4; margin:15mm 12mm 16mm; }
+@media print{
+  /* force the light palette regardless of viewer theme */
+  :root, :root[data-theme="dark"]{
+    --paper:#FFFFFF; --card:#FFFFFF; --sunk:#F1F4F2;
+    --ink:#10201E; --ink-2:#3D4F4B; --ink-3:#63756F;
+    --rule:#D2DAD6; --rule-2:#AFBBB5;
+    --accent:#0B6F66; --signal:#A25E11; --risk:#9A382E; --good:#356B29;
+    --c1:#0E9488; --c2:#C2761A; --c3:#3D5FC4; --c4:#A8467E; --c5:#5F8A22;
+    --tag-bg:#EDF1EF; --shadow:none;
+  }
+  html,body{ background:#FFFFFF !important; }
+  body{
+    font-size:10.5pt; line-height:1.5;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  .wrap{ max-width:none; margin:0; padding:0 }
+
+  /* reclaim horizontal room for figures */
+  .sec{ grid-template-columns:44px minmax(0,1fr); gap:0 20px; padding:0; border-top:none }
+  .rail::after{ display:none }
+  .rail .n{ position:static; font-size:10pt }
+
+  /* pagination */
+  .mast{
+    padding:0; margin:0; border-bottom:none; break-after:page;
+    min-height:244mm; display:flex; flex-direction:column; justify-content:center;
+  }
+  .mast .mast-meta{ margin-top:14mm; padding-top:5mm; border-top:1px solid var(--rule) }
+  .sec{ break-before:page }
+  .closer{ break-before:page }
+  h1,h2,h3,h4{ break-after:avoid }
+  figure,.note,.finding,.tl-row,.pb-c,.legend{ break-inside:avoid }
+  figcaption{ break-after:avoid }
+  p,li{ orphans:3; widows:3 }
+  thead{ display:table-header-group }
+  tr{ break-inside:avoid }
+
+  /* typography scaled for A4 */
+  h1{ font-size:34pt; line-height:1.03 }
+  .dek{ font-size:12.5pt }
+  h2{ font-size:19pt }
+  h3{ font-size:13pt; margin-top:9mm }
+  .sec-lede{ font-size:11.5pt }
+  .finding .k{ font-size:20pt }
+
+  /* tables must fit the measure, not scroll */
+  .tw{ overflow:visible; break-inside:auto }
+  table{ min-width:0; font-size:8.2pt }
+  th,td{ padding:5px 7px }
+  thead th{ position:static }
+  .src{ font-size:7.4pt }
+  .conf{ font-size:7.2pt }
+
+  /* grid gaps are painted by the container background on screen; in print a
+     page break leaves that background behind as an empty slab */
+  .findings,.pb,.tl{ background:transparent; border:none; border-radius:0; gap:4mm }
+  .finding,.pb-c,.tl-row{ border:1px solid var(--rule); border-radius:6px }
+
+  /* screen-only affordances */
+  #tip, details.tbl{ display:none !important }
+  .chart svg{ overflow:hidden }
+}
+</style>
